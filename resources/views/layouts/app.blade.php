@@ -16,11 +16,14 @@
 
         <!-- Styles -->
         @livewireStyles
+
+        <!-- Bootstrap Icons -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     </head>
     <body class="font-sans antialiased">
         <x-banner />
 
-        <div class="min-h-screen bg-gray-100">
+        <div class="min-h-screen bg-gray-100 pb-10">
             @livewire('navigation-menu')
 
             <!-- Page Heading -->

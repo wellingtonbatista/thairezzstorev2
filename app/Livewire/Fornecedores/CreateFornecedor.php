@@ -4,9 +4,12 @@ namespace App\Livewire\Fornecedores;
 
 use Livewire\Component;
 use App\Models\Fornecedor;
+use Mary\Traits\Toast;
 
 class CreateFornecedor extends Component
 {
+
+    use Toast;
 
     public $nome_fornecedor;
     public $limite_compra_fornecedor;
@@ -29,6 +32,15 @@ class CreateFornecedor extends Component
         ]);
 
         $this->reset();
+
+        $this->toast(
+            type: "success",
+            title: "Fornecedor Cadastrado com Sucesso!",
+            position: "toast-bottom toast-end",
+            css: "alert-success",
+            icon: "o-check-badge",
+            timeout: "1500"
+        );
     }
 
     public function rules()

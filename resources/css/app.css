@@ -32,11 +32,19 @@
     }
 
     .btn-warning {
-        @apply border mx-auto px-4 py-1 rounded-md text-yellow-600 border-yellow-600 font-bold
+        @apply border mx-auto px-4 py-1 rounded-md text-yellow-500 border-yellow-500 font-bold
     }
 
     .btn-warning:hover {
-        @apply bg-yellow-600 text-white duration-200
+        @apply bg-yellow-500 text-white duration-200
+    }
+
+    .btn-danger {
+        @apply border mx-auto px-4 py-1 rounded-md text-red-600 border-red-600 font-bold
+    }
+
+    .btn-danger:hover {
+        @apply bg-red-600 text-white duration-200
     }
 
     /* ESTILOS TEXT */
