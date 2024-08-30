@@ -5,3 +5,43 @@
 [x-cloak] {
     display: none;
 }
+
+@layer components {
+    .box {
+        @apply container mx-auto px-8 py-4 bg-gray-50 border rounded-md mt-8
+    }
+
+    /* ESTILO INPUTS */
+
+    .label-input-text {
+        @apply font-bold text-sm pb-0.5
+    }
+
+    .input-text {
+        @apply rounded-md text-sm        
+    }
+
+    /* ESTILO BUTTONS */
+
+    .btn-success {
+        @apply border mx-auto px-4 py-1 rounded-md text-green-600 border-green-600 font-bold
+    }
+
+    .btn-success:hover {
+        @apply bg-green-600 text-white duration-200
+    }
+
+    .btn-warning {
+        @apply border mx-auto px-4 py-1 rounded-md text-yellow-600 border-yellow-600 font-bold
+    }
+
+    .btn-warning:hover {
+        @apply bg-yellow-600 text-white duration-200
+    }
+
+    /* ESTILOS TEXT */
+
+    .titulo {
+        @apply font-bold my-auto text-2xl
+    }
+}
