@@ -38,6 +38,8 @@
             </main>
         </div>
 
+        <x-mary-toast />
+
         @stack('modals')
 
         @livewireScripts
