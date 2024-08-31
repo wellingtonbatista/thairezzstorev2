@@ -30,11 +30,16 @@
                             <tr>
                                 <th class="text-center py-4">{{ $fornecedor->id }}</th>
                                 <td class="py-4">{{ $fornecedor->nome }}</td>
-                                <td class="py-4">R$ {{ $fornecedor->limite_compra ?? "N/A" }}</td>
+
+                                <td class="py-4">
+                                    {{ $fornecedor->limite_compra ? Number::currency($fornecedor->limite_compra, in: 'BRL') : "N/A" }}
+                                </td>
 
                                 <td class="text-center py-4">
                                     <button class="btn-warning">
-                                        <a href="#" wire:navigate><i class="bi bi-view-list"></i></a>
+                                        <a href="{{ route('fornecedor.details', ['id' => $fornecedor->id]) }}" wire:navigate>
+                                            <i class="bi bi-view-list"></i>
+                                        </a>
                                     </button>
                                 </td>
 

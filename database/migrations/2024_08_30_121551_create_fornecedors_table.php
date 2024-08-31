@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('nome');
             $table->string('descricao')->nullable();
-            $table->string('limite_compra')->nullable();
+            $table->float('limite_compra')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

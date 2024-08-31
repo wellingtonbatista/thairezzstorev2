@@ -1,5 +1,6 @@
 <?php
 
+use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -18,3 +19,4 @@ Route::middleware([
 
 Route::get('fornecedores/create', App\Livewire\Fornecedores\CreateFornecedor::class)->middleware('auth')->name('fornecedor.create');
 Route::get('fornecedores/listing', App\Livewire\Fornecedores\ListingFornecedor::class)->middleware('auth')->name('fornecedor.listing');
+Route::get('fornecedores/details/{id}', App\Livewire\Fornecedores\DetailsFornecedor::class)->middleware('auth')->name('fornecedor.details');
