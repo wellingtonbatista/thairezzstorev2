@@ -16,6 +16,7 @@ class CreateProduto extends Component
     public $fornecedores = [];
 
     public $id_fornecedor_produto;
+    public $codigo_interno_produto;
     public $nome_produto;
     public $ean_produto;
     public $descricao_produto;
@@ -38,6 +39,7 @@ class CreateProduto extends Component
 
         Produto::create([
             'fornecedor_id' => $this->id_fornecedor_produto,
+            'codigo_interno' => $this->codigo_interno_produto,
             'nome' => $this->nome_produto,
             'ean' => $this->ean_produto,
             'descricao' => $this->descricao_produto,
@@ -49,6 +51,7 @@ class CreateProduto extends Component
         
         $this->reset(
             'id_fornecedor_produto',
+            'codigo_interno_produto',
             'nome_produto',
             'ean_produto',
             'descricao_produto',
@@ -71,6 +74,7 @@ class CreateProduto extends Component
     {
         return [
             'id_fornecedor_produto' => 'required',
+            'codigo_interno_produto' => 'required',
             'nome_produto' => 'required|min:3|max:255',
             'valor_compra_produto' => 'required|numeric',
             'valor_venda_produto' => 'required|numeric',

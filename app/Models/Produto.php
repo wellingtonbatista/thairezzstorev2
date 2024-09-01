@@ -15,6 +15,7 @@ class Produto extends Model
 
     protected $fillable = [
         'fornecedor_id',
+        'codigo_interno',
         'nome',
         'ean',
         'descricao',
@@ -23,4 +24,9 @@ class Produto extends Model
         'estoque',
         'img'
     ];
+
+    public function fornecedor()
+    {
+        return $this->belongsTo(Fornecedor::class);
+    }
 }

@@ -28,7 +28,8 @@ class ListingFornecedor extends Component
             title: "Fornecedor Apagado com Sucesso!",
             position: "toast-bottom toast-end",
             css: "alert-error",
-            icon: "o-trash"
+            icon: "o-trash",
+            timeout: '1500'
         );
     }
 }

@@ -14,7 +14,31 @@
 
             <hr class="divisor">
 
-            <div class="grid grid-cols-10 gap-4">
+            <div class="grid grid-cols-11 gap-4">
+
+                <div class="grid col-span-2">
+
+                    <label for="codigo_interno_produto-produto" class="label-input-text">
+                        Cod. Interno:
+                        @error('codigo_interno_produto')
+                            <span class="text-red-500">Campo Obrigatorio!</span>
+                        @enderror
+                    </label>
+
+                    <input type="text" name="codigo_interno_produto" class="input-text" wire:model="codigo_interno_produto">
+                </div>
+
+                <div class="grid col-span-5">
+
+                    <label for="nome_produto" class="label-input-text">
+                        Nome:
+                        @error('nome_produto')
+                            <span class="text-red-500">Campo obrigatorio!</span>
+                        @enderror
+                    </label>
+
+                    <input type="text" name="nome_produto" class="input-text" wire:model="nome_produto">
+                </div>
 
                 <div class="grid col-span-2">
 
@@ -34,19 +58,7 @@
                     </select>
                 </div>
 
-                <div class="grid col-span-6">
-
-                    <label for="nome_produto" class="label-input-text">
-                        Nome:
-                        @error('nome_produto')
-                            <span class="text-red-500">Campo obrigatorio!</span>
-                        @enderror
-                    </label>
-
-                    <input type="text" name="nome_produto" class="input-text" wire:model="nome_produto">
-                </div>
-
-                <div class="grid col-span-2" class="input-text">
+                <div class="grid col-span-2">
                     <label for="ean-produto" class="label-input-text">EAN:</label>
                     <input type="text" name="ean_produto" class="input-text" wire:model="ean_produto">
                 </div>

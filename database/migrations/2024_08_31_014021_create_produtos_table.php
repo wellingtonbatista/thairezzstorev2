@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('produtos', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('fornecedor_id');
+            $table->string('codigo_interno');
             $table->string('nome');
             $table->bigInteger('ean')->nullable();
             $table->text('descricao')->nullable();
