@@ -23,4 +23,8 @@ Route::get('fornecedores/details/{id}', App\Livewire\Fornecedores\DetailsFornece
 
 Route::get('produtos/create', App\Livewire\Produtos\CreateProduto::class)->middleware('auth')->name('produtos.create');
 Route::get('produtos/listing', App\Livewire\Produtos\ListingProduto::class)->middleware('auth')->name('produtos.listing');
-Route::get('produtos/details/{id}', App\Livewire\Produtos\DetailsProduto::class)->middleware('auth')->name('produtos.details');
+Route::get('produtos/details/{id_produto}', App\Livewire\Produtos\DetailsProduto::class)->middleware('auth')->name('produtos.details');
+
+Route::get('estoque/listing', App\Livewire\Estoque\ListingEstoque::class)->middleware('auth')->name('estoque.listing');
+Route::get('estoque/create', App\Livewire\Estoque\CreateEstoque::class)->middleware('auth')->name('estoque.create');
+Route::get('estoque/deposito/listing', App\Livewire\Estoque\ListingDepositEstoque::class)->middleware('auth')->name('estoque.deposit.listing');

@@ -46,7 +46,7 @@
 
                                 <td class="py-4 text-center">
                                     <button class="btn-warning">
-                                        <a href=""><i class="bi bi-view-list"></i></a>
+                                        <a href="{{ route('produtos.details', ['id_produto' => $produto->id]) }}" wirew:navigate><i class="bi bi-view-list"></i></a>
                                     </button>
                                 </td>
 

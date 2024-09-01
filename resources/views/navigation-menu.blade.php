@@ -24,6 +24,10 @@
                     <x-nav-link href="{{ route('fornecedor.listing') }}" :active="request()->routeIs('fornecedor.listing')" wire:navigate>
                         {{ __('Fornecedor') }}
                     </x-nav-link>
+
+                    <x-nav-link href="{{ route('estoque.listing') }}" :active="request()->routeIs('estoque.listing')" wire:navigate>
+                        {{ __('Estoque') }}
+                    </x-nav-link>
                 </div>
             </div>
 
