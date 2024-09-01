@@ -20,7 +20,7 @@ return new class extends Migration
             $table->float('valor_compra');
             $table->float('valor_venda');
             $table->integer('estoque');
-            $table->string('img')->nullable();
+            $table->string('img');
             $table->softDeletes();
             $table->timestamps();
 

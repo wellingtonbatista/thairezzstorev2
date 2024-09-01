@@ -11,7 +11,7 @@
             </div>
         </div>
 
-        <hr class="mt-5 mb-10">
+        <hr class="divisor">
 
         <div class="grid grid-cols-1">
             <div class="grid col-span-1">
