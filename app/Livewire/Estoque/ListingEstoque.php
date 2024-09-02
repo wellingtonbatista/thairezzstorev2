@@ -15,7 +15,7 @@ class ListingEstoque extends Component
 
     public function render()
     {
-        $this->estoques = Estoque::all();
+        $this->estoques = Estoque::orderBy('id', 'desc')->get();
 
         return view('livewire.estoque.listing-estoque');
     }

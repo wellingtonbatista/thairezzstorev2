@@ -17,6 +17,10 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
 
+                    <x-nav-link href="{{ route('cliente.listing') }}" :active="request()->routeIs('cliente.listing')" wire:navigate>
+                        {{ __('Clientes') }}
+                    </x-nav-link>
+
                     <x-nav-link href="{{ route('produtos.listing') }}" :active="request()->routeIs('produtos.listing')" wire:navigate>
                         {{ __('Produtos') }}
                     </x-nav-link>
