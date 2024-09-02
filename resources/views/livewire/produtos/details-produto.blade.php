@@ -102,7 +102,7 @@
 
             <div class="grid col-span-3">
                 <label for="estoque_produto" class="label-input-text">Estoque:</label>
-                <input type="text" name="estoque_produto" class="input-text bg-gray-50" value="0" disabled>
+                <input type="text" name="estoque_produto" class="input-text bg-gray-50" value="0" wire:model='estoque_produto' disabled>
             </div>
         </div>
 

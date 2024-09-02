@@ -47,6 +47,14 @@
         @apply bg-red-600 text-white duration-200
     }
 
+    .btn-info {
+        @apply border mx-auto px-4 py-1 rounded-md text-sky-500 border-sky-500 font-bold
+    }
+
+    .btn-info:hover {
+        @apply bg-sky-500 text-white duration-200
+    }
+
     /* ESTILOS TEXT */
 
     .titulo {
