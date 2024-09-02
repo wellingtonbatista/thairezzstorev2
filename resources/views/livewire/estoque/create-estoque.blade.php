@@ -7,7 +7,7 @@
                 </div>
                 <div class="grid col-span-1 justify-self-end">
                     <button class="btn-warning">
-                        <a href="{{ route('estoque.listing') }}">Voltar</a>
+                        <a href="{{ route('estoque.listing') }}" wire:navigate>Voltar</a>
                     </button>
                 </div>
             </div>

@@ -7,10 +7,10 @@
             <div class="grid col-span-1 justify-self-end">
                 <div>
                     <button class="btn-warning me-2">
-                        <a href="{{ route('estoque.listing') }}">Voltar</a>
+                        <a href="{{ route('estoque.listing') }}" wire:navigate>Voltar</a>
                     </button>
                     <button class="btn-success">
-                        <a href="{{ route('estoque.deposit.create') }}">Novo Deposito</a>
+                        <a href="{{ route('estoque.deposit.create') }}" wire:navigate>Novo Deposito</a>
                     </button>
                 </div>
             </div>
