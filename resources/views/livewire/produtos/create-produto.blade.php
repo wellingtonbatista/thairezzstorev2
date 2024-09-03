@@ -116,7 +116,7 @@
                             <span class="text-red-500">Campo obrigatorio!</span>
                         @enderror
                     </label>
-                    <x-mary-file wire:model="imagem_produto" hint=".jpeg .png" accept="image/png, image/jpeg" />
+                    <x-mary-file wire:model="imagem_produto" hint=".jpeg .png .webp" accept="image/png, image/jpeg" />
                 </div>
             </div>
 

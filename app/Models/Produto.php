@@ -22,7 +22,8 @@ class Produto extends Model
         'valor_compra',
         'valor_venda',
         'estoque',
-        'img'
+        'img',
+        'estoque_bonificacao'
     ];
 
     public function fornecedor()

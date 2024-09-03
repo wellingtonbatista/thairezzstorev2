@@ -46,6 +46,7 @@ class CreateProduto extends Component
             'valor_compra' => $this->valor_compra_produto,
             'valor_venda' => $this->valor_venda_produto,
             'estoque' => 0,
+            'estoque_bonificao' => 0,
             'img' => $this->imagem_produto->hashName()
         ]);
         
