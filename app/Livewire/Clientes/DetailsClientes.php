@@ -39,16 +39,16 @@ class DetailsClientes extends Component
         $cliente->nome = $this->nome_cliente;
         $cliente->documento = $this->documento_cliente;
         $cliente->contato = $this->contato_cliente;
-        $cliente->data_nascimento = $this->data_nascimento;
+        $cliente->data_nascimento = $this->data_nascimento_cliente;
 
         $cliente->save();
 
         $this->toast(
             type: 'success',
-            title: 'Cliente Apagado com Sucesso!',
+            title: 'Cliente Atualizado com Sucesso!',
             position: 'toast-bottom toast-end',
-            css: 'alert-error',
-            icon: 'o-trash',
+            css: 'alert-success',
+            icon: 'o-check-badge',
             timeout: '1500'
         );
     }
