@@ -33,7 +33,7 @@
     
             <br class="my-5">
     
-            <div class="grid grid-cols-3 gap-4">
+            <div class="grid grid-cols-4 gap-4">
                 <div class="grid col-span-1">
                     <label for="tipo_estoque" class="label-input-text">
                         Tipo:
@@ -41,12 +41,29 @@
                             <span class="text-red-500">Campo Obrigatorio!</span>
                         @enderror
                     </label>
-                    <select name="tipo_estoque" class="input-text" wire:model="tipo_estoque">
+                    <select name="tipo_estoque" class="input-text" wire:model.live="tipo_estoque">
                         <option>Selecione um Tipo</option>
                         <option value="entrada">Entrada</option>
                         <option value="saida">Saida</option>
                     </select>
                 </div>
+
+                <div class="grid col-span-1">
+                    <label for="natureza_operacao" class="label-input-text">Naturaza de Operação:</label>
+                    <select name="natureza_operacao" class="input-text">
+                        <option>Selecione uma Opção</option>
+                        @if ($tipo_estoque == 'entrada')
+                            <option value="compra">Compra de Mercadoria ao Fornecedor</option>
+                            <option value="bonificacao">Bonificação</option>
+                            <option value="devolucao">Devolução de Mercadoria por Parte do Cliente Final</option>
+                        @else
+                            <option value="venda">Venda ao Cliente Final</option>
+                            <option value="bonificacao">Bonificação</option>
+                            <option value="devolucao">Devolução de Mercadoria ao Fornecedor</option>
+                        @endif
+                    </select>
+                </div>
+
                 <div class="grid col-span-1">
                     <label for="deposito_estoque" class="label-input-text">
                         Deposito:

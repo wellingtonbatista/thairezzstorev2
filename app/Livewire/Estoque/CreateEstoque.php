@@ -17,6 +17,7 @@ class CreateEstoque extends Component
 
     public $id_produto;
     public $tipo_estoque;
+    public $natureza_operacao;
     public $id_deposito_estoque;
     public $quantidade_estoque;
 
