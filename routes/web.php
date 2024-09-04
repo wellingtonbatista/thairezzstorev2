@@ -39,5 +39,5 @@ Route::get('pedidos/details/{id_pedido}', App\Livewire\Pedidos\DetailsPedidos::c
 
 Route::get('configuracoes/natureza_operacao/listing', App\Livewire\Configuracoes\ListingNaturezaOperacao::class)->middleware('auth')->name('natureza_operacao.listing');
 Route::get('configuracoes/natureza_operacao/create', App\Livewire\Configuracoes\CreateNaturezaOperacao::class)->middleware('auth')->name('natureza_operacao.create');
-Route::get('configuracoes/natureza_operacao/details', App\Livewire\Configuracoes\DetailsNaturezaOperacao::class)->middleware('auth')->name('natureza_operacao.details');
+Route::get('configuracoes/natureza_operacao/details/{id_natureza_operacao}', App\Livewire\Configuracoes\DetailsNaturezaOperacao::class)->middleware('auth')->name('natureza_operacao.details');
 Route::get('configuracoes/listing', App\Livewire\Configuracoes\Listing::class)->middleware('auth')->name('config.listing');
