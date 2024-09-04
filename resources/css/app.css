@@ -69,10 +69,26 @@
 
     /* ESTILO LINK CONFIGURACOES */
     .config {
-        @apply text-7xl border text-center py-12 rounded-md text-rose-500 border-rose-500 my-6
+        @apply text-6xl border text-center py-10 rounded-md text-rose-500 border-rose-500 my-6
     }
 
     .config:hover {
         @apply bg-rose-500 text-white duration-200
+    }
+
+    .config-cyan {
+        @apply text-6xl border text-center py-10 rounded-md text-cyan-500 border-cyan-500 my-6
+    }
+
+    .config-cyan:hover {
+        @apply bg-cyan-500 text-white duration-200
+    }
+
+    .config-teal {
+        @apply text-6xl border text-center py-10 rounded-md text-teal-500 border-teal-500 my-6
+    }
+
+    .config-teal:hover {
+        @apply bg-teal-500 text-white duration-200
     }
 }

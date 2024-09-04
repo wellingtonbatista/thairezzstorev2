@@ -5,15 +5,7 @@
                 <h1 class="titulo">Estoque</h1>
             </div>
             <div class="grid col-span-1 justify-self-end">
-                <div>
-                    <button class="btn-info me-2">
-                        <a href="{{ route('estoque.deposit.listing') }}" wire:navigate>Depositos</a>
-                    </button>
-    
-                    <button class="btn-success">
-                        <a href="{{ route('estoque.create') }}" wire:navigate>Nova Movimentacao</a>
-                    </button>
-                </div>
+                <a href="{{ route('estoque.create') }}" wire:navigate class="btn-success">Nova Movimentacao</a>
             </div>
         </div>
 

@@ -25,12 +25,25 @@ class ListingEstoque extends Component
         $estoque = Estoque::find($id);
 
         $produto = Produto::find($estoque->id_produto);
-        
-        if($estoque->tipo == 'entrada')
+
+        // VERIFICA SE E BONIFICACAO
+        if($estoque->natureza_operacao->bonificacao)
         {
-            $produto->estoque = $produto->estoque - $estoque->quantidade;
+            if($estoque->natureza_operacao->tipo_movimentacao == "0")
+            {
+                $produto->estoque_bonificacao = $produto->estoque_bonificacao - $estoque->quantidade;
+            } else {
+                $produto->estoque_bonificacao = $produto->estoque_bonificacao + $estoque->quantidade;
+            }
+
         } else {
-            $produto->estoque = $produto->estoque + $estoque->quantidade;
+
+            if($estoque->natureza_operacao->tipo_movimentacao == "0")
+            {
+                $produto->estoque = $produto->estoque - $estoque->quantidade;
+            } else {
+                $produto->estoque = $produto->estoque + $estoque->quantidade;
+            }
         }
 
         $produto->save();
