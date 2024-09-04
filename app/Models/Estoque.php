@@ -14,9 +14,9 @@ class Estoque extends Model
     protected $table = 'estoques';
     protected $fillable = [
         'id_produto',
-        'tipo',
         'id_deposito',
-        'quantidade'
+        'quantidade',
+        'id_natureza_operacao'
     ];
 
     public function deposito()

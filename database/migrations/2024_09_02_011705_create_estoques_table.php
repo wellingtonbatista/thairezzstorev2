@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('estoques', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('id_produto');
-            $table->string('natureza_operacao');
+            $table->string('id_natureza_operacao');
             $table->unsignedBigInteger('id_deposito');
             $table->integer('quantidade');
             $table->softDeletes();

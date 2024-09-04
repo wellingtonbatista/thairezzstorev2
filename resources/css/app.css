@@ -66,4 +66,13 @@
     .divisor {
         @apply mt-5 mb-10
     }
+
+    /* ESTILO LINK CONFIGURACOES */
+    .config {
+        @apply text-7xl border text-center py-12 rounded-md text-rose-500 border-rose-500 my-6
+    }
+
+    .config:hover {
+        @apply bg-rose-500 text-white duration-200
+    }
 }
