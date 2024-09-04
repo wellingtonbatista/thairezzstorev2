@@ -26,6 +26,7 @@ class DetailsProduto extends Component
     public $valor_venda_produto;
     public $imagem_produto;
     public $estoque_produto;
+    public $estoque_produto_bonificacao;
 
     public function render()
     {
@@ -46,6 +47,7 @@ class DetailsProduto extends Component
         $this->valor_compra_produto = $produto->valor_compra;
         $this->valor_venda_produto = $produto->valor_venda;
         $this->estoque_produto = $produto->estoque;
+        $this->estoque_produto_bonificacao = $produto->estoque_bonificacao;
     }
 
     public function update_produto()

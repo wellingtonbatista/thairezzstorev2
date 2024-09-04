@@ -74,7 +74,7 @@
 
         <br class="my-5">
 
-        <div class="grid grid-cols-9 gap-4">
+        <div class="grid grid-cols-10 gap-4">
 
             <div class="grid col-span-3">
 
@@ -100,9 +100,14 @@
                 <input type="text" name="valor_venda_produto" class="input-text" wire:model="valor_venda_produto">
             </div>
 
-            <div class="grid col-span-3">
+            <div class="grid col-span-2">
                 <label for="estoque_produto" class="label-input-text">Estoque:</label>
-                <input type="text" name="estoque_produto" class="input-text bg-gray-50" value="0" wire:model='estoque_produto' disabled>
+                <input type="text" name="estoque_produto" class="input-text bg-gray-200" value="0" wire:model='estoque_produto' disabled>
+            </div>
+
+            <div class="grid col-span-2">
+                <label for="estoque_produto" class="label-input-text">Estoque Bonificações:</label>
+                <input type="text" name="estoque_produto" class="input-text bg-gray-200" value="0" wire:model='estoque_produto_bonificacao' disabled>
             </div>
         </div>
 

@@ -24,6 +24,7 @@
                             <td class="text-sm font-bold text-black text-end">Fornecedor</td>
                             <td class="text-sm font-bold text-black text-center">Valor</td>
                             <td class="text-sm font-bold text-black text-center">Estoque</td>
+                            <td class="text-sm font-bold text-black text-center">Bonificação</td>
                             <td class="text-sm font-bold text-black text-center">Detalhes</td>
                             <td class="text-sm font-bold text-black text-center">Apagar</td>
                         </tr>
@@ -43,6 +44,7 @@
                                 <td class="py-4 text-end">{{ $produto->fornecedor->nome }}</td>
                                 <td class="py-4 text-center">{{ Number::currency($produto->valor_venda, in: 'BRL') }}</td>
                                 <td class="py-4 text-center">{{ $produto->estoque }}</td>
+                                <td class="py-4 text-center">{{ $produto->estoque_bonificacao }}</td>
 
                                 <td class="py-4 text-center">
                                     <button class="btn-warning">

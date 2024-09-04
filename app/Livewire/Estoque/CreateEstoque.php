@@ -4,6 +4,7 @@ namespace App\Livewire\Estoque;
 
 use App\Models\Deposito;
 use App\Models\Estoque;
+use App\Models\NaturezaOperacao;
 use App\Models\Produto;
 use Livewire\Component;
 use Mary\Traits\Toast;
@@ -14,10 +15,10 @@ class CreateEstoque extends Component
 
     public $produtos = [];
     public $depositos = [];
+    public $natureza_operacao = [];
 
     public $id_produto;
-    public $tipo_estoque;
-    public $natureza_operacao;
+    public $id_natureza_operacao;
     public $id_deposito_estoque;
     public $quantidade_estoque;
 
@@ -25,6 +26,7 @@ class CreateEstoque extends Component
     {
         $this->produtos = Produto::all();
         $this->depositos = Deposito::all();
+        $this->natureza_operacao = NaturezaOperacao::orderBy('tipo_movimentacao', 'asc')->get();
 
         return view('livewire.estoque.create-estoque');
     }
@@ -33,25 +35,42 @@ class CreateEstoque extends Component
     {
         $this->validate();
 
+        $natureza_operacao = NaturezaOperacao::find($this->id_natureza_operacao);
+        $produto = Produto::find($this->id_produto);
+
+        // CRIAÇÃO DE REGISTRO NA TABELA DE ESTOQUE
         Estoque::create([
             'id_produto' => $this->id_produto,
-            'tipo' => $this->tipo_estoque,
+            'id_natureza_operacao' => $this->id_natureza_operacao,
             'id_deposito' => $this->id_deposito_estoque,
             'quantidade' => $this->quantidade_estoque
         ]);
 
-        // ALTERACAO DE QUANTIDADE DE ESTOQUE CADASTRO DO PRODUTO
-
-        $produto = Produto::find($this->id_produto);
-
-        if($this->tipo_estoque == 'entrada')
+        // VERIFICAR SE O PRODUTO E UMA BONIFICACAO
+        if($natureza_operacao->bonificacao)
         {
-            $produto->estoque = $produto->estoque + $this->quantidade_estoque;
-        } else {
-            $produto->estoque = $produto->estoque - $this->quantidade_estoque;
-        }
+            // ALTERACAO DE QUANTIDADE DE ESTOQUE CADASTRO DO PRODUTO (BONIFICACAO)
+            if($natureza_operacao->tipo_movimentacao == "0")
+            {
+                $produto->estoque_bonificacao = $produto->estoque_bonificacao + $this->quantidade_estoque;
+            } else {
+                $produto->estoque_bonificacao = $produto->estoque_bonificacao - $this->quantidade_estoque;
+            }
 
-        $produto->save();
+            $produto->save();
+
+        } else {
+            // ALTERACAO DE QUANTIDADE DE ESTOQUE CADASTRO DO PRODUTO (COMPRA PAGA)
+
+            if($natureza_operacao->tipo_movimentacao == "0")
+            {
+                $produto->estoque = $produto->estoque + $this->quantidade_estoque;
+            } else {
+                $produto->estoque = $produto->estoque - $this->quantidade_estoque;
+            }
+
+            $produto->save();
+        }        
 
         $this->reset();
 
@@ -69,7 +88,7 @@ class CreateEstoque extends Component
     {
         return [
             'id_produto' => 'required',
-            'tipo_estoque' => 'required',
+            'id_natureza_operacao' => 'required',
             'id_deposito_estoque' => 'required',
             'quantidade_estoque' => 'required',
         ];

@@ -12,6 +12,7 @@ class CreateNaturezaOperacao extends Component
 
     public $tipo_natureza_operacao;
     public $nome_natureza_operacao;
+    public $bonificacao;
 
     public function render()
     {
@@ -24,7 +25,8 @@ class CreateNaturezaOperacao extends Component
 
         NaturezaOperacao::create([
             'tipo_movimentacao' => $this->tipo_natureza_operacao,
-            'nome' => $this->nome_natureza_operacao
+            'nome' => $this->nome_natureza_operacao,
+            'bonificacao' => $this->bonificacao
         ]);
 
         $this->reset();

@@ -28,4 +28,9 @@ class Estoque extends Model
     {
         return $this->belongsTo(Produto::class, 'id_produto');
     }
+
+    public function natureza_operacao()
+    {
+        return $this->belongsTo(NaturezaOperacao::class, 'id_natureza_operacao');
+    }
 }

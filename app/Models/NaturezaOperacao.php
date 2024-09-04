@@ -14,6 +14,7 @@ class NaturezaOperacao extends Model
     protected $table = 'natureza_operacao';
     protected $fillable = [
         'nome',
-        'tipo_movimentacao'
+        'tipo_movimentacao',
+        'bonificacao'
     ];
 }

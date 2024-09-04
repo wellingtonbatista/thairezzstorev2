@@ -42,8 +42,12 @@
                                     @endif
                                 </td>
                                 <td class="py-4">{{ $item->nome }}</td>
-                                <td class="text-center py-4"></td>
-                                <td class="text-center py-4"></td>
+                                <td class="text-center py-4">
+                                    <a href="#" wire:navigate class="btn-warning"><i class="bi bi-view-list"></i></a>
+                                </td>
+                                <td class="text-center py-4">
+                                    <button class="btn-danger" wire:click="apagar_natureza_operacao({{$item->id}})"><i class="bi bi-trash3"></i></button>
+                                </td>
                             </tr>
                         @endforeach
                     </tbody>

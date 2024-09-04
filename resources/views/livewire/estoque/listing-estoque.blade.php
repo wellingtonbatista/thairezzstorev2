@@ -36,7 +36,7 @@
                         @foreach ($estoques as $estoque)
                             <tr>
                                 <td>
-                                    @if ($estoque->tipo == 'entrada')
+                                    @if ($estoque->natureza_operacao->tipo_movimentacao == "0")
                                         <span class="text-green-600"><i class="bi bi-caret-up-fill"></i></span>
                                     @else
                                         <span class="text-red-600"><i class="bi bi-caret-down-fill"></i></span>
@@ -44,7 +44,7 @@
                                 </td>
                                 <td class="py-4 text-start">{{ $estoque->produto->nome }}</td>
                                 <td class="py-4 text-center">{{ $estoque->deposito->nome }}</td>
-                                <td class="py-4 text-center capitalize">{{ $estoque->tipo }}</td>
+                                <td class="py-4 text-center capitalize">{{ $estoque->natureza_operacao->tipo_movimentacao == "0" ? "Entrada" : "Saida" }}</td>
                                 <td class="py-4 text-center">{{ $estoque->quantidade }}</td>
                                 <td class="py-4 text-end">
                                     <button class="btn-danger" wire:click="delete_estoque({{$estoque->id}})"><i class="bi bi-trash3"></i></button>

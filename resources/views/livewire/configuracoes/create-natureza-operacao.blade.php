@@ -37,7 +37,20 @@
                 </div>
             </div>
 
-            <br class="my-5">
+            <br>
+
+            <div class="grid grid-cols-6 gap-6 mt-3">
+                <div class="grid col-span-1">
+                    <div class="form-control">
+                        <label class="label cursor-pointer">
+                          <span class="label-input-text">Bonificação?</span>
+                          <input type="checkbox" class="checkbox" wire:model="bonificacao" />
+                        </label>
+                    </div>
+                </div>
+            </div>
+    
+            <br class="my-8">
 
             <div class="text-end">
                 <button class="btn-success" type="submit">Cadastrar</button>

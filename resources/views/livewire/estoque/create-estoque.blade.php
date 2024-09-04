@@ -34,33 +34,21 @@
             <br class="my-5">
     
             <div class="grid grid-cols-4 gap-4">
-                <div class="grid col-span-1">
-                    <label for="tipo_estoque" class="label-input-text">
-                        Tipo:
-                        @error('tipo_estoque')
+                <div class="grid col-span-2">
+                    <label for="natureza_operacao_estoque" class="label-input-text">
+                        Natureza de Operação:
+                        @error('id_natureza_operacao')
                             <span class="text-red-500">Campo Obrigatorio!</span>
                         @enderror
                     </label>
-                    <select name="tipo_estoque" class="input-text" wire:model.live="tipo_estoque">
-                        <option>Selecione um Tipo</option>
-                        <option value="entrada">Entrada</option>
-                        <option value="saida">Saida</option>
-                    </select>
-                </div>
-
-                <div class="grid col-span-1">
-                    <label for="natureza_operacao" class="label-input-text">Naturaza de Operação:</label>
-                    <select name="natureza_operacao" class="input-text">
+                    <select name="natureza_operacao_estoque" class="input-text" wire:model="id_natureza_operacao">
                         <option>Selecione uma Opção</option>
-                        @if ($tipo_estoque == 'entrada')
-                            <option value="compra">Compra de Mercadoria ao Fornecedor</option>
-                            <option value="bonificacao">Bonificação</option>
-                            <option value="devolucao">Devolução de Mercadoria por Parte do Cliente Final</option>
-                        @else
-                            <option value="venda">Venda ao Cliente Final</option>
-                            <option value="bonificacao">Bonificação</option>
-                            <option value="devolucao">Devolução de Mercadoria ao Fornecedor</option>
-                        @endif
+                        @foreach ($natureza_operacao as $natureza_op)
+                            <option value="{{ $natureza_op->id }}">
+                                {{ $natureza_op->tipo_movimentacao == "0" ? "Entrada" : "Saida" }} - 
+                                {{ $natureza_op->nome }}
+                            </option>
+                        @endforeach
                     </select>
                 </div>
 
@@ -78,6 +66,7 @@
                         @endforeach
                     </select>
                 </div>
+
                 <div class="grid col-span-1">
                     <label for="quantidade_estoque" class="label-input-text">
                         Quantidade:
@@ -88,7 +77,7 @@
                     <input type="number" name="quantidade_estoque" class="input-text" wire:model="quantidade_estoque">
                 </div>
             </div>
-    
+
             <br class="my-5">
     
             <div class="text-end">
