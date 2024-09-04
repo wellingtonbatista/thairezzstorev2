@@ -5,7 +5,10 @@
                 <h1 class="titulo">Estoque</h1>
             </div>
             <div class="grid col-span-1 justify-self-end">
-                <a href="{{ route('estoque.create') }}" wire:navigate class="btn-success">Nova Movimentacao</a>
+                <div>
+                    <a href="{{ route('config.listing') }}" wire:navigate class="btn-warning me-2">Voltar</a>
+                    <a href="{{ route('estoque.create') }}" wire:navigate class="btn-success">Nova Movimentacao</a>
+                </div>
             </div>
         </div>
 

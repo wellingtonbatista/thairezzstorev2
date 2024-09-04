@@ -41,3 +41,7 @@ Route::get('configuracoes/natureza_operacao/listing', App\Livewire\Configuracoes
 Route::get('configuracoes/natureza_operacao/create', App\Livewire\Configuracoes\CreateNaturezaOperacao::class)->middleware('auth')->name('natureza_operacao.create');
 Route::get('configuracoes/natureza_operacao/details/{id_natureza_operacao}', App\Livewire\Configuracoes\DetailsNaturezaOperacao::class)->middleware('auth')->name('natureza_operacao.details');
 Route::get('configuracoes/listing', App\Livewire\Configuracoes\Listing::class)->middleware('auth')->name('config.listing');
+
+Route::get('bonificacao/listing', App\Livewire\Bonificacao\ListingBonificacao::class)->middleware('auth')->name('bonificacao.listing');
+Route::get('bonificacao/create', App\Livewire\Bonificacao\CreateBonificacao::class)->middleware('auth')->name('bonificacao.create');
+Route::get('bonificacao/details/{id_bonificacao}', App\Livewire\Bonificacao\DetailsBonificacao::class)->middleware('auth')->name('bonificacao.details');

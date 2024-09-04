@@ -91,4 +91,12 @@
     .config-teal:hover {
         @apply bg-teal-500 text-white duration-200
     }
+
+    .config-orange {
+        @apply text-6xl border text-center py-10 rounded-md text-orange-500 border-orange-500 my-6
+    }
+
+    .config-orange:hover {
+        @apply bg-orange-500 text-white duration-200
+    }
 }
