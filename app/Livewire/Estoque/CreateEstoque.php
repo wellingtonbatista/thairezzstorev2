@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Estoque;
 
+use App\Models\Bonificacao;
 use App\Models\Deposito;
 use App\Models\Estoque;
 use App\Models\NaturezaOperacao;

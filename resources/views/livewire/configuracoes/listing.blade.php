@@ -18,7 +18,7 @@
             </div>
 
             <div class="grid col-span-1">
-                <a class="config-teal" href="{{ route('bonificacao.listing') }}" wire:navigate>
+                <a class="config-teal" href="#" wire:navigate>
                     <i class="bi bi-award"></i>
                     <br>
                     <h1 class="font-bold text-2xl pt-2">Bonificações</h1>
