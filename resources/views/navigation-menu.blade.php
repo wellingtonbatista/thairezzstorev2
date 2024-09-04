@@ -21,6 +21,10 @@
                         {{ __('Clientes') }}
                     </x-nav-link>
 
+                    <x-nav-link href="{{ route('entrada.listing') }}" :active="request()->routeIs('entrada.listing')" wire:navigate>
+                        {{ __('Compras') }}
+                    </x-nav-link>
+
                     <x-nav-link href="{{ route('produtos.listing') }}" :active="request()->routeIs('produtos.listing')" wire:navigate>
                         {{ __('Produtos') }}
                     </x-nav-link>

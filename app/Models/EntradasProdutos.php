@@ -13,6 +13,9 @@ class EntradasProdutos extends Model
 
     protected $table = 'entradas_produtos';
     protected $fillable = [
-        
+        'entrada_id',
+        'produto_id',
+        'valor_compra',
+        'quantidade'
     ];
 }

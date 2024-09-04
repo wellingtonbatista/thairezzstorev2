@@ -14,6 +14,7 @@ class Entradas extends Model
     protected $table = 'entradas';
     protected $fillable = [
         'fornecedor_id',
-        'data_entrada'
+        'data_entrada',
+        'id_natureza_operacao'
     ];
 }
