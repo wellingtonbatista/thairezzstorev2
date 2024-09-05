@@ -17,19 +17,14 @@ class DetailsEntrada extends Component
 
     public $id_entrada;
 
-    // DADOS FORMULARIO
-    public $fornecedores = [];
-    public $natureza_operacao = [];
+    // DADOS PARA FUNCIONAMENTO
     public $produtos = [];
     public $entrada;
 
     // MODAL
     public $myModal1 = false;
 
-    // DADOS ENTRADA DO PEDIDO
-    public $id_fornecedor_entrada;
-    public $data_compra_entrada;
-    public $id_natureza_operacao;
+    // DADOS DE EXIBICAO DE INFORMAÇÃO
     public $valor_total_pedido;
 
     // DADOS CADASTRO DE PRODUTOS TABELA INTERMEDIARIA
@@ -39,10 +34,6 @@ class DetailsEntrada extends Component
     
     public function render()
     {
-        $this->fornecedores = Fornecedor::all();
-        $this->natureza_operacao = NaturezaOperacao::where('tipo_movimentacao', 0)->get();
-        $this->produtos = Produto::all();
-        $this->entrada = Entradas::find($this->id_entrada);
         $this->valor_total_pedido = $this->calcular_valor_total_pedido($this->entrada);
 
         return view('livewire.entradas.details-entrada');
@@ -50,11 +41,8 @@ class DetailsEntrada extends Component
 
     public function mount()
     {
-        $entrada = Entradas::find($this->id_entrada);
-
-        $this->id_fornecedor_entrada = $entrada->fornecedor_id;
-        $this->data_compra_entrada = $entrada->data_entrada;
-        $this->id_natureza_operacao = $entrada->id_natureza_operacao;
+        $this->entrada = Entradas::find($this->id_entrada);
+        $this->produtos = Produto::all();
     }
 
     public function create_produto_entrada()
@@ -96,13 +84,13 @@ class DetailsEntrada extends Component
         );
     }
 
-    public function calcular_valor_total_pedido(Entradas $entradas)
+    public function calcular_valor_total_pedido(Entradas $entrada)
     {
         $valor_total_pedido = 0;
 
-        foreach($entradas->produtos as $produto)
+        foreach($entrada->produtos as $produto)
         {
-            $valor_total_pedido = $produto->pivot->valor_compra * $produto->pivot->quantidade;
+            $valor_total_pedido = $valor_total_pedido + ($produto->pivot->valor_compra * $produto->pivot->quantidade);
         }
 
         return Number::currency($valor_total_pedido, in: "BRL");

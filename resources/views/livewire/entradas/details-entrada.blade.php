@@ -14,33 +14,23 @@
         <div class="grid grid-cols-6 gap-4">
 
             <div class="grid col-span-3">
-                <label for="id_natureza_operacao" class="label-input-text">Natureza de Operação</label>
-                <select name="id_natureza_operacao" wire:model='id_natureza_operacao' class="input-text bg-gray-200" disabled>
-                    <option>Selecione uma Opção</option>
-                    @foreach ($natureza_operacao as $nat_operacao)
-                        <option value="{{ $nat_operacao->id }}">{{ $nat_operacao->nome }}</option>
-                    @endforeach
-                </select>
+                <label for="natureza_operacao" class="label-input-text">Natureza de Operação</label>
+                <input type="text" name="natureza_operacao" class="input-text bg-gray-200" value="{{ $entrada->natureza_operacao->nome }}" disabled>
             </div>
 
             <div class="grid col-span-1">
-                <label for="id_fornecedor_entrada" class="label-input-text">Fornecedor:</label>
-                <select name="id_fornecedor_entrada" class="input-text" wire:model='id_fornecedor_entrada'>
-                    <option>Selecione uma opção</option>
-                    @foreach ($fornecedores as $fornecedor)
-                        <option value="{{ $fornecedor->id }}">{{ $fornecedor->nome }}</option>
-                    @endforeach
-                </select>
+                <label for="fornecedor_entrada" class="label-input-text">Fornecedor:</label>
+                <input type="text" name="fornecedor_entrada" value="{{ $entrada->fornecedor->nome }}" class="input-text bg-gray-200" disabled>
             </div>
 
             <div class="grid col-span-1">
                 <label for="data_compra_entrada" class="label-input-text">Data da Compra:</label>
-                <input type="date" name="data_compra_entrada" class="input-text" wire:model='data_compra_entrada'>
+                <input type="date" name="data_compra_entrada" value="{{ $entrada->data_entrada }}" disabled class="input-text bg-gray-200" wire:model='data_compra_entrada'>
             </div>
 
             <div class="grid col-span-1">
                 <label for="valor_total_pedido" class="label-input-text">Valor Total:</label>
-                <input type="text" name="valor_total_pedido" class="input-text bg-gray-200" disabled wire:model='valor_total_pedido'>
+                <input type="text" name="valor_total_pedido" class="input-text bg-gray-200" disabled value="{{ $valor_total_pedido }}">
             </div>
         </div>
     </div>
@@ -60,7 +50,7 @@
                     <thead>
                         <th class="text-sm font-bold text-black">Produto:</th>
                         <td class="text-sm font-bold text-black text-center">Quantidade:</td>
-                        <td class="text-sm font-bold text-black text-center">Valor de Compra</td>
+                        <td class="text-sm font-bold text-black text-center">Valor Unitario:</td>
                         <td class="text-sm font-bold text-black text-center">Valor Total</td>
                         <td class="text-sm font-bold text-black text-end">Remover</td>
                     </thead>
