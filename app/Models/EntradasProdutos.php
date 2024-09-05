@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class EntradasProdutos extends Model
 {
     use HasFactory;
-    use SoftDeletes;
+    //use SoftDeletes;
 
     protected $table = 'entradas_produtos';
     protected $fillable = [
@@ -18,9 +18,4 @@ class EntradasProdutos extends Model
         'valor_compra',
         'quantidade'
     ];
-
-    public function produto()
-    {
-        return $this->belongsToMany(Produto::class, 'entradas_produtos', 'produto_id', 'entrada_id');
-    }
 }

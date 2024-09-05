@@ -11,7 +11,8 @@
 
         <hr class="divisor">
 
-        <div class="grid grid-cols-5 gap-4">
+        <div class="grid grid-cols-6 gap-4">
+
             <div class="grid col-span-3">
                 <label for="id_natureza_operacao" class="label-input-text">Natureza de Operação</label>
                 <select name="id_natureza_operacao" wire:model='id_natureza_operacao' class="input-text bg-gray-200" disabled>
@@ -21,6 +22,7 @@
                     @endforeach
                 </select>
             </div>
+
             <div class="grid col-span-1">
                 <label for="id_fornecedor_entrada" class="label-input-text">Fornecedor:</label>
                 <select name="id_fornecedor_entrada" class="input-text" wire:model='id_fornecedor_entrada'>
@@ -30,9 +32,15 @@
                     @endforeach
                 </select>
             </div>
+
             <div class="grid col-span-1">
                 <label for="data_compra_entrada" class="label-input-text">Data da Compra:</label>
                 <input type="date" name="data_compra_entrada" class="input-text" wire:model='data_compra_entrada'>
+            </div>
+
+            <div class="grid col-span-1">
+                <label for="valor_total_pedido" class="label-input-text">Valor Total:</label>
+                <input type="text" name="valor_total_pedido" class="input-text bg-gray-200" disabled wire:model='valor_total_pedido'>
             </div>
         </div>
     </div>
@@ -40,7 +48,7 @@
     <div class="box">
         <div class="grid grid-cols-1">
             <div class="grid col-span-1 justify-self-end">
-                <button class="btn-success" onclick="my_modal_4.showModal()">Adicionar Produto ao Pedido</button>
+                <button class="btn-success" @click="$wire.myModal1 = true">Adicionar Produto ao Pedido</button>
             </div>
         </div>
 
@@ -57,13 +65,17 @@
                         <td class="text-sm font-bold text-black text-end">Remover</td>
                     </thead>
                     <tbody>
-                        @foreach ($produtos_pedido as $produto_pedido)
+                        @foreach ($entrada->produtos as $entr)
                             <tr>
-                                <th></th>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                <th class="py-4">{{ $entr->nome }}</th>
+                                <td class="py-4 text-center">{{ $entr->pivot->quantidade }}</td>
+                                <td class="py-4 text-center">{{ Number::currency($entr->pivot->valor_compra, in:'BRL') }}</td>
+                                <td class="py-4 text-center">{{ Number::currency(($entr->pivot->valor_compra * $entr->pivot->quantidade), in: "BRL") }}</td>
+                                <td class="py-4 text-end">
+                                    <button class="btn-danger" wire:click="remove_produto_entrada({{$entr->pivot->id}})">
+                                        <i class="bi bi-x-lg"></i>
+                                    </button>
+                                </td>
                             </tr>
                         @endforeach
                     </tbody>
@@ -72,8 +84,8 @@
         </div>
     </div>
 
-    <dialog id="my_modal_4" class="modal">
-        <div class="modal-box w-11/12 max-w-5xl">
+    <x-mary-modal wire:model="myModal1">
+        <div class="mb-5">
             <h3 class="text-lg font-bold">Adicionar Produto ao Pedido</h3>
             <hr class="divisor">
 
@@ -91,7 +103,7 @@
 
             <br>
 
-            <div class="grid grid-cols-2 gap-4">
+            <div class="grid grid-cols-2 gap-4 pb-8">
                 <div class="grid col-span-1">
                     <label for="quantidade_entrada" class="label-input-text">Quantidade</label>
                     <input type="text" name="quantidade_entrada" class="input-text" wire:model='quantidade_entrada'>
@@ -104,17 +116,16 @@
                 </div>
             </div>
 
-            <br>
-            <div class="flex justify-end">
-                <div>
-                    <button wire:click='create_produto_entrada' class="btn-success me-4" type="submit">Adicionar</button>
+            <hr class="divisor">
+
+            <div class="grid grid-cols-2 gap-4 mb-6">
+                <div class="grid col-span-1">
+                    <button wire:click='create_produto_entrada' class="btn-success w-full" type="submit">Adicionar</button>
                 </div>
-                <div>
-                    <form>
-                        <button class="btn-danger">Fechar</button>
-                    </form>
+                <div class="grid col-span-1">
+                    <button class="btn-danger w-full" @click="$wire.myModal1 = false">Fechar</button>
                 </div>
             </div>
         </div>
-    </dialog>
+    </x-mary-modal>
 </div>

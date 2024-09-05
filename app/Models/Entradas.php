@@ -27,4 +27,18 @@ class Entradas extends Model
     {
         return $this->belongsTo(NaturezaOperacao::class, 'id_natureza_operacao');
     }
+
+    public function produtos()
+    {
+        return $this->belongsToMany(
+            Produto::class,
+            'entradas_produtos',
+            'produto_id',
+            'entrada_id'
+        )->withPivot(
+            'id',
+            'valor_compra',
+            'quantidade'
+        );
+    }
 }

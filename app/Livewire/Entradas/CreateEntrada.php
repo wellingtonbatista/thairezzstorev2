@@ -57,6 +57,6 @@ class CreateEntrada extends Component
             timeout: '1500'
         );
 
-        return redirect()->route('entrada.details', ['id_entrada' => $entrada->id]);
+        return $this->redirect('listing', navigate:true);
     }
 }

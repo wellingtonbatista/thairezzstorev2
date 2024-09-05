@@ -11,7 +11,7 @@ class ListingEntrada extends Component
 
     public function render()
     {
-        $this->entradas = Entradas::all();
+        $this->entradas = Entradas::OrderBy('data_entrada', 'desc')->get();
 
         return view('livewire.entradas.listing-entrada');
     }
