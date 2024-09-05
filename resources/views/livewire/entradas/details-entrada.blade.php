@@ -11,13 +11,16 @@
 
         <hr class="divisor">
 
-        <div class="grid grid-cols-6 gap-4">
-
-            <div class="grid col-span-3">
+        <div class="grid grid-cols-1">
+            <div class="grid col-span-1">
                 <label for="natureza_operacao" class="label-input-text">Natureza de Operação</label>
                 <input type="text" name="natureza_operacao" class="input-text bg-gray-200" value="{{ $entrada->natureza_operacao->nome }}" disabled>
             </div>
+        </div>
 
+        <br>
+
+        <div class="grid grid-cols-3 gap-4">
             <div class="grid col-span-1">
                 <label for="fornecedor_entrada" class="label-input-text">Fornecedor:</label>
                 <input type="text" name="fornecedor_entrada" value="{{ $entrada->fornecedor->nome }}" class="input-text bg-gray-200" disabled>
@@ -78,6 +81,20 @@
         <div class="mb-5">
             <h3 class="text-lg font-bold">Adicionar Produto ao Pedido</h3>
             <hr class="divisor">
+
+            <div class="grid grid-cols-1">
+                <div class="grid col-span-1">
+                    <label for="id_deposito_entrada" class="label-input-text">Depositos:</label>
+                    <select name="id_deposito_entrada" wire:model='id_deposito_entrada' class="input-text">
+                        <option>Selecione uma Opção</option>
+                        @foreach ($depositos as $deposito)
+                            <option value="{{ $deposito->id }}">{{ $deposito->nome }}</option>
+                        @endforeach
+                    </select>
+                </div>
+            </div>
+
+            <br>
 
             <div class="grid grid-cols-1">
                 <div class="grid col-span-1">

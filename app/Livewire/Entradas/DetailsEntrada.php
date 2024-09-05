@@ -2,8 +2,10 @@
 
 namespace App\Livewire\Entradas;
 
+use App\Models\Deposito;
 use App\Models\Entradas;
 use App\Models\EntradasProdutos;
+use App\Models\Estoque;
 use App\Models\Fornecedor;
 use App\Models\NaturezaOperacao;
 use App\Models\Produto;
@@ -19,6 +21,7 @@ class DetailsEntrada extends Component
 
     // DADOS PARA FUNCIONAMENTO
     public $produtos = [];
+    public $depositos = [];
     public $entrada;
 
     // MODAL
@@ -29,6 +32,7 @@ class DetailsEntrada extends Component
 
     // DADOS CADASTRO DE PRODUTOS TABELA INTERMEDIARIA
     public $id_produto_entrada;
+    public $id_deposito_entrada;
     public $valor_compra_entrada;
     public $quantidade_entrada;
     
@@ -43,16 +47,28 @@ class DetailsEntrada extends Component
     {
         $this->entrada = Entradas::find($this->id_entrada);
         $this->produtos = Produto::all();
+        $this->depositos = Deposito::all();
     }
 
     public function create_produto_entrada()
     {
+        /*
         EntradasProdutos::create([
             'entrada_id' => $this->id_entrada,
             'produto_id' => $this->id_produto_entrada,
             'valor_compra' => $this->valor_compra_entrada,
             'quantidade' => $this->quantidade_entrada
         ]);
+        */
+
+        // MOVIMENTAÇÃO DE ESTOQUE
+        Estoque::create([
+            'id_produto' => $this->id_produto_entrada,
+            'id_natureza_operacao' => $this->entrada->natureza_operacao->id,
+            'id_deposito' => '',
+            'quantidade' => $this->quantidade_entrada
+        ]);
+
 
         $this->reset(
             'id_produto_entrada',
