@@ -18,4 +18,9 @@ class EntradasProdutos extends Model
         'valor_compra',
         'quantidade'
     ];
+
+    public function produto()
+    {
+        return $this->belongsToMany(Produto::class, 'entradas_produtos', 'produto_id', 'entrada_id');
+    }
 }

@@ -17,4 +17,14 @@ class Entradas extends Model
         'data_entrada',
         'id_natureza_operacao'
     ];
+
+    public function fornecedor()
+    {
+        return $this->belongsTo(Fornecedor::class, 'fornecedor_id');
+    }
+
+    public function natureza_operacao()
+    {
+        return $this->belongsTo(NaturezaOperacao::class, 'id_natureza_operacao');
+    }
 }
