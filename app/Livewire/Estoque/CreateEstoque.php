@@ -2,9 +2,8 @@
 
 namespace App\Livewire\Estoque;
 
-use App\Models\Bonificacao;
 use App\Models\Deposito;
-use App\Models\Estoque;
+use App\Http\Controllers\EstoqueController;
 use App\Models\NaturezaOperacao;
 use App\Models\Produto;
 use Livewire\Component;
@@ -36,42 +35,15 @@ class CreateEstoque extends Component
     {
         $this->validate();
 
-        $natureza_operacao = NaturezaOperacao::find($this->id_natureza_operacao);
-        $produto = Produto::find($this->id_produto);
-
         // CRIAÇÃO DE REGISTRO NA TABELA DE ESTOQUE
-        Estoque::create([
-            'id_produto' => $this->id_produto,
-            'id_natureza_operacao' => $this->id_natureza_operacao,
-            'id_deposito' => $this->id_deposito_estoque,
-            'quantidade' => $this->quantidade_estoque
-        ]);
+        $estoque = new EstoqueController();
 
-        // VERIFICAR SE O PRODUTO E UMA BONIFICACAO
-        if($natureza_operacao->bonificacao)
-        {
-            // ALTERACAO DE QUANTIDADE DE ESTOQUE CADASTRO DO PRODUTO (BONIFICACAO)
-            if($natureza_operacao->tipo_movimentacao == "0")
-            {
-                $produto->estoque_bonificacao = $produto->estoque_bonificacao + $this->quantidade_estoque;
-            } else {
-                $produto->estoque_bonificacao = $produto->estoque_bonificacao - $this->quantidade_estoque;
-            }
-
-            $produto->save();
-
-        } else {
-            // ALTERACAO DE QUANTIDADE DE ESTOQUE CADASTRO DO PRODUTO (COMPRA PAGA)
-
-            if($natureza_operacao->tipo_movimentacao == "0")
-            {
-                $produto->estoque = $produto->estoque + $this->quantidade_estoque;
-            } else {
-                $produto->estoque = $produto->estoque - $this->quantidade_estoque;
-            }
-
-            $produto->save();
-        }        
+        $estoque->CreateEstoque(
+            $this->id_produto,
+            $this->id_natureza_operacao,
+            $this->id_deposito_estoque,
+            $this->quantidade_estoque
+        );        
 
         $this->reset();
 
