@@ -43,7 +43,8 @@ class CreateEntrada extends Component
         $entrada = Entradas::create([
             'fornecedor_id' => $this->id_fornecedor_entrada,
             'data_entrada' => $this->data_compra_entrada,
-            'id_natureza_operacao' => $this->id_natureza_operacao_entrada
+            'id_natureza_operacao' => $this->id_natureza_operacao_entrada,
+            'estoque_lancado' => false
         ]);
 
         $this->reset();
