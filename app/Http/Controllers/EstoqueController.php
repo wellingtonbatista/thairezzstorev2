@@ -5,11 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\Estoque;
 use App\Models\NaturezaOperacao;
 use App\Models\Produto;
-use Illuminate\Http\Request;
 
 class EstoqueController extends Controller
 {
-    public function CreateEstoque($id_produto, $id_natureza_operacao, $id_deposito, $quantidade)
+    public function EntradaEstoque($id_produto, $id_natureza_operacao = null, $id_deposito, $quantidade, $id_referencial_entrada)
     {
         $natureza_operacao = NaturezaOperacao::find($id_natureza_operacao);
         $produto = Produto::find($id_produto);
@@ -18,34 +17,60 @@ class EstoqueController extends Controller
             'id_produto' => $id_produto,
             'id_natureza_operacao' => $id_natureza_operacao,
             'id_deposito' => $id_deposito,
-            'quantidade' => $quantidade
+            'quantidade' => $quantidade,
+            'id_referencial_entrada' => $id_referencial_entrada
         ]);
 
         // Verifica se a natureza de operacao e uma bonificacao
         if($natureza_operacao->bonificacao)
         {
-            // Alteracao na quantidade de produtos bonificados
-            // Verifica se entrada ou saida de produto
-
-            if($natureza_operacao->tipo_movimentacao == 0){
-                $produto->estoque_bonificacao = $produto->estoque_bonificacao + $quantidade;
-            } else {
-                $produto->estoque_bonificacao = $produto->estoque_bonificacao - $quantidade;
-            }
+            $produto->estoque_bonificacao = $produto->estoque_bonificacao + $quantidade;
         } else {
-            // Alteracao na quantidade de produtos comprados
-            // Verifica se entrada ou saida de produto
-
-            if($natureza_operacao->tipo_movimentacao == 0)
-            {
-                $produto->estoque = $produto->estoque + $quantidade;
-            } else {
-                $produto->estoque = $produto->estoque - $quantidade;
-            }
+            $produto->estoque = $produto->estoque + $quantidade;
         }
 
         $produto->save();
 
+    }
+
+    public function SaidaEstoque($id_produto, $id_natureza_operacao, $id_deposito, $quantidade, $id_referencial_saida = null)
+    {
+        $natureza_operacao = NaturezaOperacao::find($id_natureza_operacao);
+        $produto = Produto::find($id_produto);
+
+        Estoque::create([
+            'id_produto' => $id_produto,
+            'id_natureza_operacao' => $id_natureza_operacao,
+            'id_deposito' => $id_deposito,
+            'quantidade' => $quantidade,
+            'id_referencial_entrada' => $id_referencial_saida
+        ]);
+
+        // Verifica se a natureza de operacao e uma bonificacao
+        if($natureza_operacao->bonificacao)
+        {
+            $produto->estoque_bonificacao = $produto->estoque_bonificacao - $quantidade;
+        } else {
+            $produto->estoque = $produto->estoque - $quantidade;
+        }
+
+        $produto->save();
+    }
+
+    public function ExtornarEstoque($bonificacao, $id_estoque, $id_produto, $quantidade)
+    {
+        $produto = Produto::find($id_produto);
+
+        if($bonificacao)
+        {
+            $produto->estoque_bonificacao = $produto->estoque_bonificacao - $quantidade;
+        } else {
+            $produto->estoque = $produto->estoque - $quantidade;
+        }
+
+        $produto->save();
+
+        Estoque::find($id_estoque)->delete();
     }
 
     public function Estoques()
@@ -53,10 +78,8 @@ class EstoqueController extends Controller
         return Estoque::all();
     }
 
-    public function DeleteEstoque($id)
+    public function EstoqueEspecifico($campo_procurar, $dado)
     {
-        $estoque = Estoque::find($id);
-
-        
+        return Estoque::where($campo_procurar, $dado)->get();
     }
 }
