@@ -16,7 +16,9 @@ class Estoque extends Model
         'id_produto',
         'id_deposito',
         'quantidade',
-        'id_natureza_operacao'
+        'id_natureza_operacao',
+        'id_referencial_entrada',
+        'id_referencial_saida'
     ];
 
     public function deposito()
