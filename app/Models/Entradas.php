@@ -15,7 +15,9 @@ class Entradas extends Model
     protected $fillable = [
         'fornecedor_id',
         'data_entrada',
-        'id_natureza_operacao'
+        'id_natureza_operacao',
+        'estoque_lancado'
+
     ];
 
     public function fornecedor()
@@ -38,7 +40,9 @@ class Entradas extends Model
         )->withPivot(
             'id',
             'valor_compra',
-            'quantidade'
+            'quantidade',
+            'deposito_id',
+            'entrada_id'
         );
     }
 }

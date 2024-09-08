@@ -16,6 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('fornecedor_id');
             $table->date('data_entrada');
             $table->unsignedBigInteger('id_natureza_operacao');
+            $table->boolean('estoque_lancado');
             $table->softDeletes();
             $table->timestamps();
 
