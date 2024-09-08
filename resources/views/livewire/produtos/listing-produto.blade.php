@@ -25,8 +25,7 @@
                             <td class="text-sm font-bold text-black text-center">Valor</td>
                             <td class="text-sm font-bold text-black text-center">Estoque</td>
                             <td class="text-sm font-bold text-black text-center">Bonificação</td>
-                            <td class="text-sm font-bold text-black text-center">Detalhes</td>
-                            <td class="text-sm font-bold text-black text-center">Apagar</td>
+                            <td></td>
                         </tr>
                     </thead>
                     <tbody>
@@ -45,15 +44,18 @@
                                 <td class="py-4 text-center">{{ Number::currency($produto->valor_venda, in: 'BRL') }}</td>
                                 <td class="py-4 text-center">{{ $produto->estoque }}</td>
                                 <td class="py-4 text-center">{{ $produto->estoque_bonificacao }}</td>
-
-                                <td class="py-4 text-center">
-                                    <button class="btn-warning">
-                                        <a href="{{ route('produtos.details', ['id_produto' => $produto->id]) }}" wirew:navigate><i class="bi bi-view-list"></i></a>
-                                    </button>
-                                </td>
-
-                                <td class="py-4 text-center">
-                                    <button class="btn-danger" wire:click="delete_produto({{$produto->id}})"><i class="bi bi-trash3"></i></button>
+                                <td class="text-end">
+                                    <div class="dropdown">
+                                        <div tabindex="0" role="button" class="btn-warning m-1"><i class="bi bi-list"></i></div>
+                                        <ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
+                                          <li>
+                                            <a href="{{ route('produtos.details', ['id_produto' => $produto->id]) }}" wirew:navigate>Detalhes</a>
+                                          </li>
+                                          <li>
+                                            <button wire:click="delete_produto({{$produto->id}})">Arquivar</button>
+                                          </li>
+                                        </ul>
+                                    </div>
                                 </td>
                             </tr>
                         @endforeach

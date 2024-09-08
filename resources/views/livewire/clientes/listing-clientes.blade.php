@@ -21,8 +21,7 @@
                             <th class="text-sm font-bold text-black text-start">Nome</th>
                             <td class="text-sm font-bold text-black text-center">Documento</td>
                             <td class="text-sm font-bold text-black text-center">Data de Nascimento</td>
-                            <td class="text-sm font-bold text-black text-center">Detalhes</td>
-                            <td class="text-sm font-bold text-black text-end">Apagar</td>
+                            <td class="py-4"></td>
                         </tr>
                     </thead>
                     <tbody>
@@ -31,13 +30,18 @@
                                 <th class="py-4">{{ $cliente->nome }}</th>
                                 <td class="py-4 text-center">{{ $cliente->documento }}</td>
                                 <td class="py-4 text-center">{{ date('d/m/Y', strtotime($cliente->data_nascimento)) }}</td>
-                                <td class="py-4 text-center">
-                                    <button class="btn-warning">
-                                        <a href="{{ route('cliente.details', ['id_cliente' => $cliente->id]) }}" wire:navigate><i class="bi bi-view-list"></i></a>
-                                    </button>
-                                </td>
-                                <td class="py-4 text-end">
-                                    <button class="btn-danger" wire:click="delete_cliente({{$cliente->id}})"><i class="bi bi-trash3"></i></button>
+                                <td class="text-end">
+                                    <div class="dropdown">
+                                        <div tabindex="0" role="button" class="btn-warning m-1"><i class="bi bi-list"></i></div>
+                                        <ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
+                                          <li>
+                                            <a href="{{ route('cliente.details', ['id_cliente' => $cliente->id]) }}">Detalhes</a>
+                                          </li>
+                                          <li>
+                                            <button wire:click="delete_cliente({{$cliente->id}})">Arquivar</button>
+                                          </li>
+                                        </ul>
+                                    </div>
                                 </td>
                             </tr>
                         @endforeach

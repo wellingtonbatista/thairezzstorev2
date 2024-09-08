@@ -25,10 +25,10 @@ class ListingProduto extends Component
 
         $this->toast(
             type: 'success',
-            title: 'Produto Apagado com Sucesso!',
+            title: 'Produto Arquivado com Sucesso!',
             position: 'toast-bottom toast-end',
-            css: 'alert-error',
-            icon: 'o-trash',
+            css: 'alert-warning',
+            icon: 'o-check-badge',
             timeout: '1500'
         );
     }

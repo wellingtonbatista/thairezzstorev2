@@ -25,10 +25,10 @@ class ListingClientes extends Component
 
         $this->toast(
             type: 'success',
-            title: 'Cliente Apagado com Sucesso!',
+            title: 'Cliente Arquivado com Sucesso!',
             position: 'toast-bottom toast-end',
-            css: 'alert-error',
-            icon: 'o-trash',
+            css: 'alert-warning',
+            icon: 'o-check-badge',
             timeout: '1500'
         );
     }
