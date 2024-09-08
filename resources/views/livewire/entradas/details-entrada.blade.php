@@ -65,8 +65,8 @@
                                 <td class="py-4 text-center">{{ Number::currency($entr->pivot->valor_compra, in:'BRL') }}</td>
                                 <td class="py-4 text-center">{{ Number::currency(($entr->pivot->valor_compra * $entr->pivot->quantidade), in: "BRL") }}</td>
                                 <td class="py-4 text-end">
-                                    <button class="btn-danger" label="Open" @click="$wire.myModal2 = true, $wire.id_entrada_produto_remover = '{{ $entr->pivot->id }}'">
-                                        <i class="bi bi-x-lg"></i>
+                                    <button class="btn-danger" wire:click="remove_produto_entrada({{$entr->pivot->id}})">
+                                        <i class="bi bi-trash3"></i>
                                     </button>
                                 </td>
                             </tr>
@@ -132,47 +132,6 @@
                 <div class="grid col-span-1">
                     <button class="btn-danger w-full" @click="$wire.myModal1 = false">Fechar</button>
                 </div>
-            </div>
-        </div>
-    </x-mary-modal>
-
-    <x-mary-modal wire:model="myModal2">
-        <h3 class="text-lg font-bold">Remover Produto ao Pedido</h3>
-        <hr class="divisor">
-        <div class="mb-5">
-            <div class="grid grid-cols-1">
-                <div class="grid col-span-1">
-                    <label for="id_natureza_operacao_remover" class="label-input-text">Natureza Operacao</label>
-                    <select wire:model='id_natureza_operacao_remover' name="id_natureza_operacao_remover" class="input-text">
-                        <option>Selecione uma Opcao</option>
-                        @foreach ($natureza_operacao as $nat_operacao)
-                            <option value="{{ $nat_operacao->id }}">{{ $nat_operacao->nome }}</option>
-                        @endforeach
-                    </select>
-                </div>
-            </div>
-
-            <br>
-
-            <div class="grid grid-cols-1">
-                <div class="grid col-span-1">
-                    <label for="id_depositos_remover" class="label-input-text">Deposito</label>
-                    <select wire:model='id_depositos_remover' name="id_depositos_remover" class="input-text">
-                        <option>Selecione uma Opcao</option>
-                        @foreach ($depositos as $deposito)
-                            <option value="{{ $deposito->id }}">{{ $deposito->nome }}</option>
-                        @endforeach
-                    </select>
-                </div>
-            </div>
-        </div>
-        <br>
-        <div class="grid grid-cols-2 gap-4 mb-6">
-            <div class="grid col-span-1">
-                <button class="btn-warning w-full" wire:click='remove_produto_entrada'>Remover Produto</button>
-            </div>
-            <div class="grid col-span-1">
-                <button class="btn-danger w-full" @click="$wire.myModal2 = false">Fechar</button>
             </div>
         </div>
     </x-mary-modal>

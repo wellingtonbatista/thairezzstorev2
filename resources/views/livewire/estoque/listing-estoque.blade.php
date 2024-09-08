@@ -24,7 +24,6 @@
                             <td class="font-bold text-sm text-black text-center">Deposito</td>
                             <td class="font-bold text-sm text-black text-center">Tipo</td>
                             <td class="font-bold text-sm text-black text-center">Quantidade</td>
-                            <td class="font-bold text-sm text-black text-end">Apagar</td>
                         </tr>
                     </thead>
                     <tbody>
@@ -41,9 +40,6 @@
                                 <td class="py-4 text-center">{{ $estoque->deposito->nome }}</td>
                                 <td class="py-4 text-center capitalize">{{ $estoque->natureza_operacao->tipo_movimentacao == "0" ? "Entrada" : "Saida" }}</td>
                                 <td class="py-4 text-center">{{ $estoque->quantidade }}</td>
-                                <td class="py-4 text-end">
-                                    <button class="btn-danger" wire:click="delete_estoque({{$estoque->id}})"><i class="bi bi-trash3"></i></button>
-                                </td>
                             </tr>
                         @endforeach
                     </tbody>
