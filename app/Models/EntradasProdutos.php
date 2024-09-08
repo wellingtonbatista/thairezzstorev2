@@ -16,6 +16,7 @@ class EntradasProdutos extends Model
         'entrada_id',
         'produto_id',
         'valor_compra',
-        'quantidade'
+        'quantidade',
+        'deposito_id'
     ];
 }

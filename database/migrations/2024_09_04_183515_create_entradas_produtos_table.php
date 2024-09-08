@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('entrada_id');
             $table->unsignedBigInteger('produto_id');
+            $table->unsignedBigInteger('deposito_id');
             $table->float('valor_compra');
             $table->integer('quantidade');
             $table->softDeletes();
@@ -22,6 +23,7 @@ return new class extends Migration
 
             $table->foreign('entrada_id')->references('id')->on('entradas');
             $table->foreign('produto_id')->references('id')->on('produtos');
+            $table->foreign('deposito_id')->references('id')->on('depositos');
         });
     }
 
