@@ -2,6 +2,33 @@
     <div class="box">
         <div class="grid grid-cols-2">
             <div class="grid col-span-1 justify-self-start">
+                <h1 class="titulo">Filtros</h1>
+            </div>
+            <div class="grid col-span-1 justify-self-end">
+                <button wire:click="LimparFiltroCliente" class="btn-warning">Limpar</button>
+            </div>
+        </div>
+
+        <hr class="my-4">
+
+        <div class="grid grid-cols-10 mb-4 gap-4">
+            <div class="grid col-span-2">
+                <label for="status_cliente" class="label-input-text">Status:</label>
+                <select class="input-text" name="status_cliente" wire:model.live="status_cliente">
+                    <option selected>Ativos</option>
+                    <option value="ativo">Inativos</option>
+                </select>
+            </div>
+            <div class="grid col-span-8">
+                <label for="nome_cliente" class="label-input-text">Nome Cliente:</label>
+                <input type="text" name="nome_cliente" wire:model.live="nome_cliente" class="input-text">
+            </div>
+        </div>
+    </div>
+
+    <div class="box">
+        <div class="grid grid-cols-2">
+            <div class="grid col-span-1 justify-self-start">
                 <h1 class="titulo">Clientes</h1>
             </div>
             <div class="grid col-span-1 justify-self-end">
@@ -38,7 +65,11 @@
                                             <a href="{{ route('cliente.details', ['id_cliente' => $cliente->id]) }}">Detalhes</a>
                                           </li>
                                           <li>
-                                            <button wire:click="delete_cliente({{$cliente->id}})">Arquivar</button>
+                                            @if ($cliente->deleted_at == null)
+                                                <button wire:click="ArquivarCliente({{$cliente->id}})">Arquivar</button>
+                                            @else
+                                                <button wire:click="DesarquivarCliente({{$cliente->id}})">Desarquivar</button>
+                                            @endif
                                           </li>
                                         </ul>
                                     </div>
