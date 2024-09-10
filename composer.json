@@ -10,6 +10,7 @@
         "laravel/jetstream": "^5.1",
         "laravel/sanctum": "^4.0",
         "laravel/tinker": "^2.9",
+        "laravel/vapor-core": "^2.37",
         "livewire/livewire": "^3.5",
         "livewire/volt": "^1.6",
         "robsontenorio/mary": "^1.35"
