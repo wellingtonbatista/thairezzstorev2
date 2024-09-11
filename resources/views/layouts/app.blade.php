@@ -36,9 +36,13 @@
             @endif
 
             <!-- Page Content -->
-            <main>
+            <main class="pb-32">
                 {{ $slot }}
             </main>
+
+            <footer>
+                <br>
+            </footer>
         </div>
 
         <x-mary-toast />

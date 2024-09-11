@@ -6,6 +6,7 @@ use App\Models\Entradas;
 use Livewire\Component;
 use App\Http\Controllers\EstoqueController;
 use App\Models\EntradasProdutos;
+use App\Models\Fornecedor;
 use App\Models\NaturezaOperacao;
 use Mary\Traits\Toast;
 
@@ -15,11 +16,32 @@ class ListingEntrada extends Component
 
     public $entradas = [];
 
+    // FILTROS
+    public $status_entrada;
+    public $fornecedor_entrada;
+    public $natureza_operacao_entrada;
+
+    // OPÇOES DE FILTROS
+    public $fornecedores;
+    public $natureza_operacao;
+
     public function render()
     {
-        $this->entradas = Entradas::OrderBy('data_entrada', 'desc')->get();
+        $this->entradas = Entradas::query()->when($this->status_entrada, function($query){
+            return $query->onlyTrashed();
+        })->when($this->fornecedor_entrada, function($query){
+            return $query->where('fornecedor_id', $this->fornecedor_entrada);
+        })->when($this->natureza_operacao_entrada, function($query){
+            return $query->where(''); // FALTANDO TERMINAR
+        })->orderBy('id', 'desc')->get();
 
         return view('livewire.entradas.listing-entrada');
+    }
+
+    public function mount()
+    {
+        $this->fornecedores = Fornecedor::all();
+        $this->natureza_operacao = NaturezaOperacao::where('tipo_movimentacao', 0)->get();
     }
 
     public function LancarEstoque($id_pedido)
@@ -93,6 +115,29 @@ class ListingEntrada extends Component
             css: 'alert-success',
             icon: 'o-check-badge',
             timeout: '1500'
+        );
+    }
+
+    public function DesarquivarPedido($id)
+    {
+        Entradas::withTrashed()->where('id', $id)->restore();
+
+        $this->toast(
+            type: 'success',
+            title: 'Pedido Desarquivado com Sucesso!',
+            position: 'toast-bottom toast-end',
+            css: 'alert-warning',
+            icon: 'o-check-badge',
+            timeout: '1500'
+        );
+    }
+
+    public function LimparFiltroEntradas()
+    {
+        $this->reset(
+            'status_entrada',
+            'fornecedor_entrada',
+            'natureza_operacao_entrada'
         );
     }
 }

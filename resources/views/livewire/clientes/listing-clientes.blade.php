@@ -40,6 +40,7 @@
 
         <hr class="divisor">
 
+        
         <div class="grid grid-cols-1">
             <div class="grid col-span-1">
                 <table class="table">
@@ -58,7 +59,7 @@
                                 <td class="py-4 text-center">{{ $cliente->documento }}</td>
                                 <td class="py-4 text-center">{{ date('d/m/Y', strtotime($cliente->data_nascimento)) }}</td>
                                 <td class="text-end">
-                                    <div class="dropdown">
+                                    <div class="dropdown dropdown-end">
                                         <div tabindex="0" role="button" class="btn-warning m-1"><i class="bi bi-list"></i></div>
                                         <ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
                                           <li>

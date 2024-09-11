@@ -2,6 +2,47 @@
     <div class="box">
         <div class="grid grid-cols-2">
             <div class="grid col-span-1">
+                <h1 class="titulo">Filtros</h1>
+            </div>
+            <div class="grid col-span-1 justify-self-end">
+                <button class="btn-warning" wire:click="LimparFiltroEntradas">Limpar</button>
+            </div>
+        </div>
+
+        <hr class="my-4">
+
+        <div class="grid grid-cols-10 gap-4 mb-3">
+            <div class="grid col-span-2">
+                <label for="status_entrada" class="label-input-text">Status:</label>
+                <select name="status_entrada" class="input-text" wire:model.live="status_entrada">
+                    <option>Ativo</option>
+                    <option value="inativo">Inativo</option>
+                </select>
+            </div>
+            <div class="grid col-span-4">
+                <label for="fornecedor_entrada" class="label-input-text">Fornecedor:</label>
+                <select name="fornecedor_entrada" class="input-text" wire:model.live="fornecedor_entrada">
+                    <option>Selecione uma Opção</option>
+                    @foreach ($fornecedores as $fornecedor)
+                        <option value="{{ $fornecedor->id }}">{{ $fornecedor->nome }}</option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="grid col-span-4">
+                <label for="natureza_operacao_entrada" class="label-input-text">Natureza de Operação:</label>
+                <select name="natureza_operacao_entrada" class="input-text" wire:model.live="natureza_operacao_entrada">
+                    <option>Selecione uma Opção</option>
+                    @foreach ($natureza_operacao as $nat_operacao)
+                        <option value="{{ $nat_operacao->id }}">{{ $nat_operacao->nome }}</option>
+                    @endforeach
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <div class="box">
+        <div class="grid grid-cols-2">
+            <div class="grid col-span-1">
                 <h1 class="titulo">Pedidos de Compras</h1>
             </div>
             <div class="grid col-span-1 justify-self-end">
@@ -29,7 +70,7 @@
                                 <td class="text-center py-4">{{ date('d/m/Y', strtotime($entrada->data_entrada)) }}</td>
                                 <td class="text-center py-4">{{ $entrada->natureza_operacao->nome }}</td>
                                 <td class="text-end py-4">
-                                    <div class="dropdown">
+                                    <div class="dropdown dropdown-end">
                                         <div tabindex="0" role="button" class="btn-warning m-1"><i class="bi bi-view-list"></i></div>
                                         <ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
                                           <li>
@@ -43,7 +84,11 @@
                                             @endif
                                           </li>
                                           <li>
-                                            <button wire:click="ArquivarPedido({{$entrada->id}})">Arquivar</button>
+                                            @if ($entrada->deleted_at == null)
+                                                <button wire:click="ArquivarPedido({{$entrada->id}})">Arquivar</button>
+                                            @else
+                                                <button wire:click="DesarquivarPedido({{$entrada->id}})">Desarquivar</button>
+                                            @endif
                                           </li>
                                         </ul>
                                     </div>
