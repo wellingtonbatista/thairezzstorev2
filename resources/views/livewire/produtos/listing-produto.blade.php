@@ -1,4 +1,36 @@
 <div>
+    <div class="box">
+        <div class="grid grid-cols-2">
+            <div class="grid col-span-1">
+                <h1 class="titulo">Filtros</h1>
+            </div>
+            <div class="grid col-span-1 justify-self-end">
+                <button wire:click="LimparFiltroProduto" class="btn-warning">Limpar</button>
+            </div>
+        </div>
+
+        <hr class="my-4">
+
+        <div class="grid grid-cols-4 mb-3 gap-4">
+            <div class="grid col-span-1">
+                <label for="status_produto" class="label-input-text">Status:</label>
+                <select name="status_produto" wire:model.live="status_produto" class="input-text">
+                    <option>Ativos</option>
+                    <option value="inativo">Inativo</option>
+                </select>
+            </div>
+
+            <div class="grid col-span-2">
+                <label for="nome_produto" class="label-input-text">Nome:</label>
+                <input type="text" name="nome_produto" wire:model.live="nome_produto" class="input-text">
+            </div>
+
+            <div class="grid col-span-1">
+                <label for="codigo_interno_produto" class="label-input-text">Codigo Interno:</label>
+                <input type="text" name="codigo_interno_produto" wire:model.live="codigo_interno_produto" class="input-text">
+            </div>
+        </div>
+    </div>
    <div class="box">
         <div class="grid grid-cols-2">
             <div class="grid col-span-1">
@@ -45,14 +77,18 @@
                                 <td class="py-4 text-center">{{ $produto->estoque }}</td>
                                 <td class="py-4 text-center">{{ $produto->estoque_bonificacao }}</td>
                                 <td class="text-end">
-                                    <div class="dropdown">
+                                    <div class="dropdown dropdown-end">
                                         <div tabindex="0" role="button" class="btn-warning m-1"><i class="bi bi-list"></i></div>
                                         <ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
                                           <li>
                                             <a href="{{ route('produtos.details', ['id_produto' => $produto->id]) }}" wirew:navigate>Detalhes</a>
                                           </li>
                                           <li>
-                                            <button wire:click="delete_produto({{$produto->id}})">Arquivar</button>
+                                            @if ($produto->deleted_at == null)
+                                                <button wire:click="ArquivarProduto({{$produto->id}})">Arquivar</button>
+                                            @else
+                                            <button wire:click="DesarquivarProduto({{$produto->id}})">Desarquivar</button>
+                                            @endif
                                           </li>
                                         </ul>
                                     </div>

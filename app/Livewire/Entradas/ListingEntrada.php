@@ -32,7 +32,7 @@ class ListingEntrada extends Component
         })->when($this->fornecedor_entrada, function($query){
             return $query->where('fornecedor_id', $this->fornecedor_entrada);
         })->when($this->natureza_operacao_entrada, function($query){
-            return $query->where(''); // FALTANDO TERMINAR
+            return $query->where('id_natureza_operacao', $this->natureza_operacao_entrada);
         })->orderBy('id', 'desc')->get();
 
         return view('livewire.entradas.listing-entrada');
