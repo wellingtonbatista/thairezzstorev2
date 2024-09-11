@@ -19,7 +19,7 @@ class ListingFornecedor extends Component
         return view('livewire.fornecedores.listing-fornecedor');
     }
 
-    public function delete_fornecedor($id)
+    public function ArquivarFornecedor($id)
     {
         Fornecedor::find($id)->delete();
 

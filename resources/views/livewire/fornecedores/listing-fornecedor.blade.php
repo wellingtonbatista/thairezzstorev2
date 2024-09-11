@@ -21,8 +21,7 @@
                             <th class="text-sm font-bold text-black text-center">#id</th>
                             <td class="text-sm font-bold text-black">Nome</td>
                             <td class="text-sm font-bold text-black">Limite de Compra</td>
-                            <td class="text-sm font-bold text-black text-center">Detalhes</td>
-                            <td class="text-sm font-bold text-black text-center">Excluir</td>
+                            <td"></td>
                         </tr>
                     </thead>
                     <tbody>
@@ -36,17 +35,17 @@
                                 </td>
 
                                 <td class="text-center py-4">
-                                    <button class="btn-warning">
-                                        <a href="{{ route('fornecedor.details', ['id' => $fornecedor->id]) }}" wire:navigate>
-                                            <i class="bi bi-view-list"></i>
-                                        </a>
-                                    </button>
-                                </td>
-
-                                <td class="text-center py-4">
-                                    <button class="btn-danger" wire:click="delete_fornecedor({{$fornecedor->id}})">
-                                        <i class="bi bi-trash3"></i>
-                                    </button>
+                                    <div class="dropdown">
+                                        <div tabindex="0" role="button" class="btn-warning m-1"><i class="bi bi-list"></i></div>
+                                        <ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
+                                          <li>
+                                            <a href="{{ route('fornecedor.details', ['id' => $fornecedor->id]) }}">Detalhes</a>
+                                          </li>
+                                          <li>
+                                            <button wire:click="ArquivarFornecedor({{$fornecedor->id}})">Arquivar</button>
+                                          </li>
+                                        </ul>
+                                    </div>
                                 </td>
 
                             </tr>

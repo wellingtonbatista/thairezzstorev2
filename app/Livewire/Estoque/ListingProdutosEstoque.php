@@ -11,7 +11,7 @@ class ListingProdutosEstoque extends Component
 
     public function render()
     {
-        $this->produtos = Produto::where('estoque', '>', 0)->where('estoque_bonificacao',  '>', 0)->get();
+        $this->produtos = Produto::all();
 
         return view('livewire.estoque.listing-produtos-estoque');
     }
