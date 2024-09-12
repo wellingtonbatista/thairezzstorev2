@@ -19,4 +19,14 @@ class Pedido extends Model
         'id_natureza_operacao',
         'estoque_lancado'
     ];
+
+    public function cliente()
+    {
+        return $this->belongsTo(Clientes::class);
+    }
+
+    public function natureza_operacao()
+    {
+        return $this->belongsTo(NaturezaOperacao::class, 'id_natureza_operacao');
+    }
 }

@@ -55,6 +55,14 @@
         @apply bg-sky-500 text-white duration-200
     }
 
+    .btn-emerald {
+        @apply border mx-auto px-4 py-1 rounded-md text-emerald-400 border-emerald-400 font-bold
+    }
+
+    .btn-emerald:hover {
+        @apply bg-emerald-400 text-white duration-200
+    }
+
     /* ESTILOS TEXT */
 
     .titulo {
