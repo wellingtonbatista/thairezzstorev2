@@ -66,7 +66,9 @@ class ListingPedidos extends Component
     public function LimparFiltroPedido()
     {
         $this->reset(
-            'status_pedido'
+            'status_pedido',
+            'cliente_pedido',
+            'natureza_operacao_pedido'
         );
     }
 }
