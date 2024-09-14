@@ -15,7 +15,7 @@
             <div class="grid col-span-2">
                 <label for="status_entrada" class="label-input-text">Status:</label>
                 <select name="status_entrada" class="input-text" wire:model.live="status_entrada">
-                    <option>Ativo</option>
+                    <option value="">Ativo</option>
                     <option value="inativo">Inativo</option>
                 </select>
             </div>
