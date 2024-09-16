@@ -21,7 +21,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($contas as $conta)
+                @foreach ($contas_abertas as $conta)
                     <tr>
                         <th class="py-4">{{ $conta->pedido_id }}</th>
                         <td class="py-4">{{ $conta->pedido->pedido_referencial }}</td>
@@ -50,5 +50,8 @@
                 @endforeach
             </tbody>
         </table>
+        <div class="mt-10">
+            {{ $contas_abertas->links() }}
+        </div>
     </div>
 </div>

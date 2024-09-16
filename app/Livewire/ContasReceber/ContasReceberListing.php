@@ -4,22 +4,20 @@ namespace App\Livewire\ContasReceber;
 
 use App\Models\ContasReceber;
 use Livewire\Component;
-//use Livewire\WithoutUrlPagination;
+use Livewire\WithoutUrlPagination;
 use Livewire\WithPagination;
 use Mary\Traits\Toast;
 
 class ContasReceberListing extends Component
 {
     use Toast;
-    use WithPagination;
-
-    public $contas = [];
+    use WithPagination, WithoutUrlPagination;
 
     public function render()
     {
-        $this->contas = ContasReceber::where('pagamento', false)->get();
-
-        return view('livewire.contas-receber.contas-receber-listing');
+        return view('livewire.contas-receber.contas-receber-listing', [
+            'contas_abertas' => ContasReceber::where('pagamento', false)->orderBy('data_vencimento', 'asc')->paginate(10)
+        ]);
     }
 
     public function ContaPaga($id)

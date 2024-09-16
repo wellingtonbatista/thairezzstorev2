@@ -22,6 +22,10 @@ class Pedido extends Model
         'pedido_referencial'
     ];
 
+    protected $with = [
+        'cliente',
+    ];
+
     public function cliente()
     {
         return $this->belongsTo(Clientes::class);
