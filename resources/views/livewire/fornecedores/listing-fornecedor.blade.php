@@ -18,7 +18,7 @@
                 <table class="table">
                     <thead>
                         <tr>
-                            <th class="text-sm font-bold text-black text-center">#id</th>
+                            <th class="text-sm font-bold text-black text-start">#id</th>
                             <td class="text-sm font-bold text-black">Nome</td>
                             <td class="text-sm font-bold text-black">Limite de Compra</td>
                             <td"></td>
@@ -27,15 +27,15 @@
                     <tbody>
                         @foreach ($fornecedores as $fornecedor)
                             <tr>
-                                <th class="text-center py-4">{{ $fornecedor->id }}</th>
+                                <th class="text-start py-4">{{ $fornecedor->id }}</th>
                                 <td class="py-4">{{ $fornecedor->nome }}</td>
 
                                 <td class="py-4">
                                     {{ $fornecedor->limite_compra ? Number::currency($fornecedor->limite_compra, in: 'BRL') : "N/A" }}
                                 </td>
 
-                                <td class="text-center py-4">
-                                    <div class="dropdown">
+                                <td class="text-end py-4">
+                                    <div class="dropdown dropdown-end">
                                         <div tabindex="0" role="button" class="btn-warning m-1"><i class="bi bi-list"></i></div>
                                         <ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
                                           <li>

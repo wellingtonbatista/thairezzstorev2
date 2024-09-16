@@ -39,17 +39,10 @@
 
         <div class="grid grid-cols-4 gap-7">
             <div class="grid col-span-1">
-                <a class="config-neutral" href="{{ route('estoque.listing') }}" wire:navigate>
+                <a class="config-neutral" href="{{ route('fornecedor.listing') }}" wire:navigate>
                     <i class="bi bi-buildings"></i>
                     <br>
                     <h1 class="font-bold text-2xl pt-2">Fornecedores</h1>
-                </a>
-            </div>
-            <div class="grid col-span-1">
-                <a class="config-sky" href="{{ route('estoque.listing') }}" wire:navigate>
-                    <i class="bi bi-cash-coin"></i>
-                    <br>
-                    <h1 class="font-bold text-2xl pt-2">Contas a Receber</h1>
                 </a>
             </div>
             <div class="grid col-span-1"></div>

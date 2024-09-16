@@ -33,8 +33,8 @@
                         {{ __('Pedidos') }}
                     </x-nav-link>
 
-                    <x-nav-link href="{{ route('fornecedor.listing') }}" :active="request()->routeIs('fornecedor.listing')" wire:navigate>
-                        {{ __('Fornecedores') }}
+                    <x-nav-link href="{{ route('contas_receber.listing') }}" :active="request()->routeIs('contas_receber.listing')" wire:navigate>
+                        {{ __('Contas Receber') }}
                     </x-nav-link>
 
                     <x-nav-link href="{{ route('config.listing') }}" :active="request()->routeIs('config.listing')" wire:navigate>

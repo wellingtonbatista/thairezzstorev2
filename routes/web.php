@@ -47,3 +47,5 @@ Route::get('estoque/produtos', App\Livewire\Estoque\ListingProdutosEstoque::clas
 Route::get('entrada/listing', App\Livewire\Entradas\ListingEntrada::class)->middleware('auth')->name('entrada.listing');
 Route::get('entrada/create', App\Livewire\Entradas\CreateEntrada::class)->middleware('auth')->name('entrada.create');
 Route::get('entrada/details/{id_entrada}', App\Livewire\Entradas\DetailsEntrada::class)->middleware('auth')->name('entrada.details');
+
+Route::get('contas_receber/listing', App\Livewire\ContasReceber\ContasReceberListing::class)->middleware("auth")->name('contas_receber.listing');

@@ -16,4 +16,9 @@ class ContasReceber extends Model
         'valor_parcela',
         'pagamento'
     ];
+
+    public function pedido()
+    {
+        return $this->belongsTo(Pedido::class);
+    }
 }
