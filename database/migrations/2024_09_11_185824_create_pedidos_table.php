@@ -16,7 +16,9 @@ return new class extends Migration
             $table->unsignedBigInteger('cliente_id');
             $table->date('data_venda');
             $table->unsignedBigInteger('id_natureza_operacao');
+            $table->string('pedido_referencial')->nullable();
             $table->boolean('estoque_lancado');
+            $table->boolean('conta_lancada');
             $table->softDeletes();
             $table->timestamps();
 

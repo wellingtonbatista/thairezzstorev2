@@ -18,7 +18,6 @@ return new class extends Migration
             $table->unsignedBigInteger('deposito_id');
             $table->float('valor_compra');
             $table->integer('quantidade');
-            $table->softDeletes();
             $table->timestamps();
 
             $table->foreign('entrada_id')->references('id')->on('entradas');

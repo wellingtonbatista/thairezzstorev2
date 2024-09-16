@@ -107,4 +107,27 @@
     .config-orange:hover {
         @apply bg-orange-500 text-white duration-200
     }
+
+    .config-sky {
+        @apply text-6xl border text-center py-10 rounded-md text-sky-800 border-sky-800 my-6
+    }
+
+    .config-sky:hover {
+        @apply bg-sky-800 text-white duration-200
+    }
+
+    .config-neutral {
+        @apply text-6xl border text-center py-10 rounded-md text-neutral-500 border-neutral-500 my-6
+    }
+
+    .config-neutral:hover {
+        @apply bg-neutral-500 text-white duration-200
+    }
+
+    /* PERSONALIZACAO COMPONENTES MARYUI */
+
+    /* TABS */
+    .tab {
+        @apply mx-auto w-full
+    }
 }

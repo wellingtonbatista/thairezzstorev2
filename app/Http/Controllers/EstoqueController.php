@@ -43,7 +43,7 @@ class EstoqueController extends Controller
             'id_natureza_operacao' => $id_natureza_operacao,
             'id_deposito' => $id_deposito,
             'quantidade' => $quantidade,
-            'id_referencial_entrada' => $id_referencial_saida
+            'id_referencial_saida' => $id_referencial_saida
         ]);
 
         // Verifica se a natureza de operacao e uma bonificacao
@@ -57,20 +57,30 @@ class EstoqueController extends Controller
         $produto->save();
     }
 
-    public function ExtornarEstoque($bonificacao, $id_estoque, $id_produto, $quantidade)
+    public function ExtornarEstoque($tipo, $bonificacao, $id_estoque, $id_produto, $quantidade)
     {
         $produto = Produto::find($id_produto);
 
-        if($bonificacao)
+        if($tipo == 0)
         {
-            $produto->estoque_bonificacao = $produto->estoque_bonificacao - $quantidade;
+            if($bonificacao)
+            {
+                $produto->estoque_bonificacao = $produto->estoque_bonificacao - $quantidade;
+            } else {
+                $produto->estoque = $produto->estoque - $quantidade;
+            }
         } else {
-            $produto->estoque = $produto->estoque - $quantidade;
+            if($bonificacao)
+            {
+                $produto->estoque_bonificacao = $produto->estoque_bonificacao + $quantidade;
+            } else {
+                $produto->estoque = $produto->estoque + $quantidade;
+            }
         }
 
         $produto->save();
 
-        Estoque::find($id_estoque)->delete();
+        Estoque::find($id_estoque)->forceDelete();
     }
 
     public function Estoques()

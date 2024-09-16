@@ -17,7 +17,9 @@ class Pedido extends Model
         'cliente_id',
         'data_venda',
         'id_natureza_operacao',
-        'estoque_lancado'
+        'estoque_lancado',
+        'conta_lancada',
+        'pedido_referencial'
     ];
 
     public function cliente()
@@ -28,5 +30,26 @@ class Pedido extends Model
     public function natureza_operacao()
     {
         return $this->belongsTo(NaturezaOperacao::class, 'id_natureza_operacao');
+    }
+
+    public function produtos()
+    {
+        return $this->belongsToMany(
+            Produto::class,
+            'produto_pedidos',
+            'pedido_id',
+            'produto_id'
+        )->withPivot(
+            'id',
+            'valor_venda',
+            'quantidade',
+            'deposito_id',
+            'pedido_id'
+        );
+    }
+
+    public function faturas()
+    {
+        return $this->hasMany(FaturasPedido::class);
     }
 }

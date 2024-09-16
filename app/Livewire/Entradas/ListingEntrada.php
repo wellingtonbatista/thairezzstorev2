@@ -84,6 +84,7 @@ class ListingEntrada extends Component
             $natureza_operacao = NaturezaOperacao::find($est->id_natureza_operacao);
 
             $estoque->ExtornarEstoque(
+                $natureza_operacao->tipo_movimentacao,
                 $natureza_operacao->bonificacao,
                 $est->id,
                 $est->id_produto,

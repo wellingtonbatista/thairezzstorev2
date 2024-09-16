@@ -26,7 +26,11 @@
     
             <br>
     
-            <div class="grid grid-cols-2 gap-4">
+            <div class="grid grid-cols-3 gap-4">
+                <div class="grid col-span-1">
+                    <label for="pedido_referencial" class="label-input-text">Pedido Referencial:</label>
+                    <input type="text" name="pedido_referencial" wire:model="pedido_referencial" class="input-text">
+                </div>
                 <div class="grid col-span-1">
                     <label for="data_pedido" class="label-input-text">Data do Pedido:</label>
                     <input type="date" name="data_pedido" wire:model="data_pedido" class="input-text">

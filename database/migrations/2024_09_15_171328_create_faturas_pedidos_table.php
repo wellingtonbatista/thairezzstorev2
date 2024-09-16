@@ -11,18 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('produto_pedidos', function (Blueprint $table) {
+        Schema::create('faturas_pedidos', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('pedido_id');
-            $table->unsignedBigInteger('produto_id');
-            $table->unsignedBigInteger('deposito_id');
-            $table->float('valor_venda');
-            $table->integer('quantidade');
+            $table->date('data_vencimento');
+            $table->float('valor_parcela');
             $table->timestamps();
 
             $table->foreign('pedido_id')->references('id')->on('pedidos');
-            $table->foreign('produto_id')->references('id')->on('produtos');
-            $table->foreign('deposito_id')->references('id')->on('depositos');
         });
     }
 
@@ -31,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('produto_pedidos');
+        Schema::dropIfExists('faturas_pedidos');
     }
 };

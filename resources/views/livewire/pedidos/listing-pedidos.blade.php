@@ -77,6 +77,20 @@
                                             <a href="{{ route('pedidos.details', ['id_pedido' => $pedido->id]) }}" wire:navigate>Detalhes</a>
                                           </li>
                                           <li>
+                                            @if ($pedido->estoque_lancado)
+                                                <button wire:click="ExtornarEstoque({{$pedido->id}})">Extornar Estoque</button>
+                                            @else
+                                                <button wire:click="LancarEstoque({{$pedido->id}})">Lancar Estoque</button>
+                                            @endif
+                                          </li>
+                                          <li>
+                                            @if ($pedido->conta_lancada)
+                                                <button wire:click="ExtornarConta({{$pedido->id}})">Extornar Contas</button>
+                                            @else
+                                                <button wire:click="LancarConta({{$pedido->id}})">Lancar Contas</button>
+                                            @endif
+                                          </li>
+                                          <li>
                                             @if ($pedido->deleted_at == null)
                                                 <button wire:click="ArquivarPedido({{$pedido->id}})">Arquivar</button>
                                             @else

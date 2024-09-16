@@ -20,6 +20,7 @@ class CreatePedidos extends Component
     public $id_cliente_pedido;
     public $data_pedido;
     public $id_natureza_operacao_pedido;
+    public $pedido_referencial;
 
     public function render()
     {
@@ -38,7 +39,9 @@ class CreatePedidos extends Component
             'cliente_id' => $this->id_cliente_pedido,
             'data_venda' => $this->data_pedido,
             'id_natureza_operacao' => $this->id_natureza_operacao_pedido,
-            'estoque_lancado' => false
+            'estoque_lancado' => false,
+            'conta_lancada' => false,
+            'pedido_referencial' => $this->pedido_referencial
         ]);
 
         $this->toast(

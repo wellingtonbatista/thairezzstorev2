@@ -9,7 +9,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class EntradasProdutos extends Model
 {
     use HasFactory;
-    //use SoftDeletes;
 
     protected $table = 'entradas_produtos';
     protected $fillable = [
