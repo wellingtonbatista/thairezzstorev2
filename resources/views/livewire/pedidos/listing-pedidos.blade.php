@@ -57,6 +57,7 @@
                 <table class="table">
                     <thead>
                         <tr>
+                            <td class="text-sm font-bold text-black text-start">#</td>
                             <td class="text-sm font-bold text-black text-start">Cliente:</td>
                             <td class="text-sm font-bold text-black text-center">Data da Venda:</td>
                             <td class="text-sm font-bold text-black text-center">Natureza de Operação:</td>
@@ -66,6 +67,7 @@
                     <tbody>
                         @foreach ($pedidos as $pedido)
                             <tr>
+                                <th class="py-4 text-start">{{ $pedido->id }}</th>
                                 <th class="py-4 text-start">{{ $pedido->cliente->nome }}</th>
                                 <td class="py-4 text-center">{{ date('d/m/Y', strtotime($pedido->data_venda)) }}</td>
                                 <td class="py-4 text-center">{{ $pedido->natureza_operacao->nome }}</td>

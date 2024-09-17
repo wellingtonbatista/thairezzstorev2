@@ -38,11 +38,12 @@ class CreateEstoque extends Component
         // CRIAÇÃO DE REGISTRO NA TABELA DE ESTOQUE
         $estoque = new EstoqueController();
 
-        $estoque->CreateEstoque(
+        $estoque->EntradaEstoque(
             $this->id_produto,
             $this->id_natureza_operacao,
             $this->id_deposito_estoque,
-            $this->quantidade_estoque
+            $this->quantidade_estoque,
+            ''
         );        
 
         $this->reset();

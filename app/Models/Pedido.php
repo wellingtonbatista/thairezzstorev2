@@ -24,6 +24,8 @@ class Pedido extends Model
 
     protected $with = [
         'cliente',
+        'natureza_operacao',
+        'faturas'
     ];
 
     public function cliente()
@@ -55,5 +57,10 @@ class Pedido extends Model
     public function faturas()
     {
         return $this->hasMany(FaturasPedido::class);
+    }
+
+    public function contas_receber()
+    {
+        return $this->hasMany(ContasReceber::class);
     }
 }

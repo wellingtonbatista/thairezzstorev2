@@ -4,7 +4,9 @@ namespace App\Livewire\Clientes;
 
 use Livewire\Component;
 use App\Models\Clientes;
+use App\Models\ContasReceber;
 use Mary\Traits\Toast;
+use App\Models\Pedido;
 
 class DetailsClientes extends Component
 {
@@ -17,9 +19,14 @@ class DetailsClientes extends Component
     public $contato_cliente;
     public $data_nascimento_cliente;
 
+    public $selectedTab = 'faturas-tab';
+
     public function render()
     {
-        return view('livewire.clientes.details-clientes');
+        return view('livewire.clientes.details-clientes', [
+            'pedidos' => Pedido::where('cliente_id', $this->id_cliente)->orderBy('data_venda', 'desc')->paginate(5),
+            'faturas' => Pedido::where('cliente_id', $this->id_cliente)->orderBy('data_venda', 'desc')->paginate(10)
+        ]);
     }
 
     public function mount()

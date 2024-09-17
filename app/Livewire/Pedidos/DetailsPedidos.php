@@ -22,7 +22,7 @@ class DetailsPedidos extends Component
     // MODAL
     public bool $myModal1 = false;
     public bool $myModal2 = false;
-    public $selectedTab = 'faturas-tab';
+    public $selectedTab = 'detalhes-tab';
 
     // DADOS MODAL ADICIONAR PRODUTOS
     public $depositos;
