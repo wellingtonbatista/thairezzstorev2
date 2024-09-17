@@ -13,10 +13,13 @@ class ContasReceberListing extends Component
     use Toast;
     use WithPagination, WithoutUrlPagination;
 
+    public $selectedTab = 'receber-tab';
+
     public function render()
     {
         return view('livewire.contas-receber.contas-receber-listing', [
-            'contas_abertas' => ContasReceber::where('pagamento', false)->orderBy('data_vencimento', 'asc')->paginate(10)
+            'contas_abertas' => ContasReceber::where('pagamento', false)->orderBy('data_vencimento', 'asc')->paginate(10),
+            'contas_pagas' => ContasReceber::where('pagamento', true)->orderBy('data_vencimento', 'asc')->paginate(10)
         ]);
     }
 

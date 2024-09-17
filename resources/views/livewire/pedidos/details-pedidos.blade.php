@@ -11,7 +11,7 @@
     </div>
 
     <div class="box">
-        <x-mary-tabs wire:model="selectedTab">
+         <x-mary-tabs wire:model="selectedTab">
             <x-mary-tab name="detalhes-tab" label="Detalhes" icon="o-clipboard-document-list">
                 <div class="mt-10">
                     <div class="grid grid-cols-1">
@@ -44,7 +44,7 @@
             <x-mary-tab name="produto-tab" label="Produtos" icon="o-shopping-cart">
                 <div class="mt-10">
                     <div class="text-end">
-                        <button class="btn-success" @click="$wire.myModal1 = true">+</button>
+                        <button class="btn-success" wire:click='VerificacaoModalProdutos'>+</button>
                     </div>
             
                     <hr class="divisor">
@@ -84,7 +84,7 @@
                     @if ($pedido->faturas->count() != 0)
                         <button class="btn-danger me-2" wire:click="RemoverParcelaFatura">-</button>
                     @else
-                        <button class="btn-success" @click="$wire.myModal2 = true">+</button>
+                        <button class="btn-success" wire:click='VerificarModalParcelas'>+</button>
                     @endif
                 </div>
                 <hr class="divisor">

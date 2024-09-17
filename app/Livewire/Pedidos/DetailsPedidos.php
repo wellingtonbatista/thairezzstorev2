@@ -22,7 +22,7 @@ class DetailsPedidos extends Component
     // MODAL
     public bool $myModal1 = false;
     public bool $myModal2 = false;
-    public $selectedTab = 'detalhes-tab';
+    public $selectedTab = 'faturas-tab';
 
     // DADOS MODAL ADICIONAR PRODUTOS
     public $depositos;
@@ -84,16 +84,29 @@ class DetailsPedidos extends Component
 
     public function RemoverProdutoPedido($id)
     {
-        ProdutoPedido::find($id)->delete();
+        if($this->pedido->estoque_lancado)
+        {
+            $this->toast(
+                type: 'success',
+                title: 'Estoque Ja Lancado, Extornar Estoque Para Continuar!',
+                position: 'toast-top toast-end',
+                css: 'alert-error',
+                icon: 'o-x-mark',
+                timeout: '1000'
+            );
+            
+        } else {
+            ProdutoPedido::find($id)->delete();
 
-        $this->toast(
-            type: 'success',
-            title: 'Produto Removido do Pedido com Sucesso!',
-            position: 'toast-bottom toast-end',
-            css: 'alert-info',
-            icon: 'o-check-badge',
-            timeout: '1000'
-        );
+            $this->toast(
+                type: 'success',
+                title: 'Produto Removido do Pedido com Sucesso!',
+                position: 'toast-bottom toast-end',
+                css: 'alert-info',
+                icon: 'o-check-badge',
+                timeout: '1000'
+            );
+        }
     }
 
     public function CalcularValorTotal($id_pedido)
@@ -133,6 +146,52 @@ class DetailsPedidos extends Component
 
     public function RemoverParcelaFatura()
     {
-        FaturasPedido::where('pedido_id', $this->id_pedido)->delete();
+        if($this->pedido->conta_lancada)
+        {
+            $this->toast(
+                type: 'success',
+                title: 'Conta Ja Lancado, Extornar Contas Para Continuar!',
+                position: 'toast-top toast-end',
+                css: 'alert-error',
+                icon: 'o-x-mark',
+                timeout: '2000'
+            );
+        } else {
+            FaturasPedido::where('pedido_id', $this->id_pedido)->delete();
+        }
+    }
+
+    public function VerificacaoModalProdutos()
+    {
+        if(!$this->pedido->estoque_lancado)
+        {
+            $this->myModal1 = true;
+        } else {
+            $this->toast(
+                type: 'success',
+                title: 'Estoque Ja Lancado, Extornar Estoque Para Continuar!',
+                position: 'toast-top toast-end',
+                css: 'alert-error',
+                icon: 'o-x-mark',
+                timeout: '2000'
+            );
+        }
+    }
+
+    public function VerificarModalParcelas()
+    {
+        if(!$this->pedido->conta_lancada)
+        {
+            $this->myModal2 = true;
+        } else {
+            $this->toast(
+                type: 'success',
+                title: 'Conta Ja Lancado, Extornar Contas Para Continuar!',
+                position: 'toast-top toast-end',
+                css: 'alert-error',
+                icon: 'o-x-mark',
+                timeout: '2000'
+            );
+        }
     }
 }
