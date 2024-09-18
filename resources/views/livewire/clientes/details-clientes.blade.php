@@ -96,27 +96,21 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($faturas as $fatura)
-                                @foreach ($fatura->contas_receber as $parcela)
-                                    <tr>
-                                        <td class="py-4">{{ $parcela->id }}</td>
-                                        <td class="py-4 text-center">{{ $parcela->pedido_id }}</td>
-                                        <td class="py-4 text-center">{{ date('d/m/Y', strtotime($parcela->data_vencimento)) }}</td>
-                                        <td class="py-4 text-center">{{ Number::currency($parcela->valor_parcela, in: "BRL") }}</td>
-                                        <td class="py-4 text-end">
-                                            @if ($parcela)
-                                                
-                                            @else
-                                                
-                                            @endif
-                                        </td>
-                                    </tr>
-                                @endforeach
+                            @foreach ($parcelas_aberto as $parcela)
+                                <tr>
+                                    <td class="py-4">{{ $parcela->id }}</td>
+                                    <td class="py-4 text-center">{{ $parcela->pedido_id }}</td>
+                                    <td class="py-4 text-center">{{ date('d/m/Y', strtotime($parcela->data_vencimento)) }}</td>
+                                    <td class="py-4 text-center">{{ Number::currency($parcela->valor_parcela, in: 'BRL') }}</td>
+                                    <td class="py-4 text-end">
+                                        <a href="{{ route('pedidos.details', ['id_pedido' => $parcela->pedido_id]) }}" class="btn-emerald" target="_blank"><i class="bi bi-box-arrow-up-right"></i></a>
+                                    </td>
+                                </tr>
                             @endforeach
                         </tbody>
                     </table>
                     <div class="my-10">
-                        {{ $faturas->links() }}
+                        {{ $parcelas_aberto->links() }}
                     </div>
                 </div>
             </x-mary-tab>

@@ -13,11 +13,15 @@ return new class extends Migration
     {
         Schema::create('contas_receber', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('cliente_id');
             $table->unsignedBigInteger('pedido_id');
             $table->date('data_vencimento');
             $table->float('valor_parcela');
             $table->boolean('pagamento');
             $table->timestamps();
+
+            $table->foreign('cliente_id')->references('id')->on('clientes');
+            $table->foreign('pedido_id')->references('id')->on('pedidos');
         });
     }
 

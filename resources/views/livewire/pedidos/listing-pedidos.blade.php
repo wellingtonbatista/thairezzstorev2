@@ -62,6 +62,7 @@
                             <td class="text-sm font-bold text-black text-center">Data da Venda:</td>
                             <td class="text-sm font-bold text-black text-center">Natureza de Operação:</td>
                             <td></td>
+                            <td></td>
                         </tr>
                     </thead>
                     <tbody>
@@ -71,6 +72,10 @@
                                 <th class="py-4 text-start">{{ $pedido->cliente->nome }}</th>
                                 <td class="py-4 text-center">{{ date('d/m/Y', strtotime($pedido->data_venda)) }}</td>
                                 <td class="py-4 text-center">{{ $pedido->natureza_operacao->nome }}</td>
+                                <td class="text-end">
+                                    <i class="bi bi-box-seam text-xl px-2 {{ $pedido->estoque_lancado ? 'text-green-600' : 'text-red-600' }}"></i>
+                                    <i class="bi bi-receipt-cutoff text-xl px-2 {{ $pedido->conta_lancada ? 'text-green-600' : 'text-red-600' }}"></i>
+                                </td>
                                 <td class="py-4 text-end">
                                     <div class="dropdown dropdown-end">
                                         <div tabindex="0" role="button" class="btn-info m-1"><i class="bi bi-list"></i></div>

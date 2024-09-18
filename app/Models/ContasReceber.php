@@ -15,7 +15,8 @@ class ContasReceber extends Model
         'pedido_id',
         'data_vencimento',
         'valor_parcela',
-        'pagamento'
+        'pagamento',
+        'cliente_id'
     ];
 
     protected $with = [

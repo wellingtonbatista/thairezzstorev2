@@ -149,7 +149,8 @@ class ListingPedidos extends Component
                 'pedido_id' => $id_pedido,
                 'data_vencimento' => $parcelas->data_vencimento,
                 'valor_parcela' => $parcelas->valor_parcela,
-                'pagamento' => false
+                'pagamento' => false,
+                'cliente_id' => $pedido->cliente_id
             ]);
         }
 
