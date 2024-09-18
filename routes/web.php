@@ -51,3 +51,4 @@ Route::get('entrada/details/{id_entrada}', App\Livewire\Entradas\DetailsEntrada:
 Route::get('contas_receber/listing', App\Livewire\ContasReceber\ContasReceberListing::class)->middleware("auth")->name('contas_receber.listing');
 
 Route::get('utilitarios/calc/shopee', App\Livewire\Utilitarios\Calc\ShopeeIndex::class)->middleware('auth')->name('calc.shopee');
+Route::get('configuracoes/variaveis_ambiente', App\Livewire\Configuracoes\ListingCreateVariaveisAmbiente::class)->middleware('auth')->name("config.variaveis_ambiente");

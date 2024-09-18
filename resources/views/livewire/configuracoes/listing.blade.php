@@ -54,7 +54,7 @@
             </div>
             <div class="grid col-span-1"></div>
             <div class="grid col-span-1">
-                <a class="config-indigo" href="{{ route('calc.shopee') }}" wire:navigate>
+                <a class="config-indigo" href="{{ route('config.variaveis_ambiente') }}" wire:navigate>
                     <i class="bi bi-braces-asterisk"></i>
                     <br>
                     <h1 class="font-bold text-2xl pt-2">Variáveis de Ambiente</h1>
