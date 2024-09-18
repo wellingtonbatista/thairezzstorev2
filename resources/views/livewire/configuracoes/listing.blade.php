@@ -26,7 +26,7 @@
             </div>
 
             <div class="grid col-span-1">
-                <a class="config-orange" href="{{ route('estoque.listing') }}" wire:navigate>
+                <a class="config-sky" href="{{ route('estoque.listing') }}" wire:navigate>
                     <i class="bi bi-database-fill-gear"></i>
                     <br>
                     <h1 class="font-bold text-2xl pt-2">Movimentação de Estoque</h1>
@@ -45,8 +45,21 @@
                     <h1 class="font-bold text-2xl pt-2">Fornecedores</h1>
                 </a>
             </div>
+            <div class="grid col-span-1">
+                <a class="config-orange" href="{{ route('calc.shopee') }}" wire:navigate>
+                    <i class="bi bi-calculator"></i>
+                    <br>
+                    <h1 class="font-bold text-2xl pt-2">Calculadora Shopee</h1>
+                </a>
+            </div>
             <div class="grid col-span-1"></div>
-            <div class="grid col-span-1"></div>
+            <div class="grid col-span-1">
+                <a class="config-indigo" href="{{ route('calc.shopee') }}" wire:navigate>
+                    <i class="bi bi-braces-asterisk"></i>
+                    <br>
+                    <h1 class="font-bold text-2xl pt-2">Variáveis de Ambiente</h1>
+                </a>
+            </div>
         </div>
 
         <hr class="my-5">

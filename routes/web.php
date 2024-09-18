@@ -49,3 +49,5 @@ Route::get('entrada/create', App\Livewire\Entradas\CreateEntrada::class)->middle
 Route::get('entrada/details/{id_entrada}', App\Livewire\Entradas\DetailsEntrada::class)->middleware('auth')->name('entrada.details');
 
 Route::get('contas_receber/listing', App\Livewire\ContasReceber\ContasReceberListing::class)->middleware("auth")->name('contas_receber.listing');
+
+Route::get('utilitarios/calc/shopee', App\Livewire\Utilitarios\Calc\ShopeeIndex::class)->middleware('auth')->name('calc.shopee');

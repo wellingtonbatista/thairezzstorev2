@@ -124,6 +124,14 @@
         @apply bg-neutral-500 text-white duration-200
     }
 
+    .config-indigo {
+        @apply text-6xl border text-center py-10 rounded-md text-indigo-500 border-indigo-500 my-6
+    }
+
+    .config-indigo:hover {
+        @apply bg-indigo-500 text-white duration-200
+    }
+
     /* PERSONALIZACAO COMPONENTES MARYUI */
 
     /* TABS */
