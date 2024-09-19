@@ -15,7 +15,12 @@ class VariaveisAmbienteSeeder extends Seeder
     {
         VariaveisAmbiente::create([
             'chave' => 'taxa_comissao_shopee',
-            'valor' => '0'
+            'valor' => "16.5"
+        ]);
+
+        VariaveisAmbiente::create([
+            'chave' => 'taxa_transporte_shopee',
+            'valor' => "6"
         ]);
     }
 }
