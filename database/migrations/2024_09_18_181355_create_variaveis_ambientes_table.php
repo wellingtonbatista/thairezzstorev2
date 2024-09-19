@@ -13,8 +13,10 @@ return new class extends Migration
     {
         Schema::create('variaveis_ambiente', function (Blueprint $table) {
             $table->id();
-            $table->string('chave');
-            $table->string('valor')->nullable();
+            $table->string('taxa_comissao_shopee')->nullable();
+            $table->string('taxa_transporte_shopee')->nullable();
+            $table->string('taxa_transacao_shopee')->nullable();
+            $table->string('taxa_fixa_item_shopee')->nullable();
             $table->timestamps();
         });
     }

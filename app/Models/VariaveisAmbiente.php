@@ -11,7 +11,9 @@ class VariaveisAmbiente extends Model
 
     protected $table = 'variaveis_ambiente';
     protected $fillable = [
-        'chave', 
-        'valor'
+        'taxa_comissao_shopee', 
+        'taxa_transporte_shopee',
+        'taxa_transacao_shopee',
+        'taxa_fixa_item_shopee'
     ];
 }
