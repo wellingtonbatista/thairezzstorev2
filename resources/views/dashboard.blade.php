@@ -1,6 +1,6 @@
 <div>
     <div class="box">
-        <div class="grid grid-cols-4 gap-4">
+        <div class="grid grid-cols-4 gap-4 mt-10">
             <div class="grid col-span-1">
                 <div class="stats shadow">
                     <div class="stat">
@@ -54,6 +54,35 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <hr class="my-10">
+        <div class="grid grid-cols-4 gap-4 mb-10">
+            <div class="grid col-span-1">
+                <div class="stats shadow">
+                    <div class="stat">
+                        <div class="stat-figure text-info text-4xl">
+                            <i class="bi bi-cash-coin"></i>
+                        </div>
+                        <div class="stat-title text-lg">Total A Receber:</div>
+                        <div class="stat-value text-info">{{ Number::currency($contas_aberto, in: "BRL") }}</div>
+                        <br>
+                    </div>
+                </div>
+            </div>
+            <div class="grid col-span-1">
+                <div class="stats shadow">
+                    <div class="stat">
+                        <div class="stat-figure text-warning text-4xl">
+                            <i class="bi bi-cart-check"></i>
+                        </div>
+                        <div class="stat-title text-lg">Total Vendido:</div>
+                        <div class="stat-value text-warning">{{ Number::currency($valor_vendido_ultimos_dias, in: "BRL") }}</div>
+                        <div class="stat-desc">{{ date('d/m/Y', strtotime($data_final_vendas)) }} á {{ date('d/m/Y', strtotime($data_inicial_vendas)) }}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="grid col-span-1"></div>
+            <div class="grid col-span-1"></div>
         </div>
     </div>  
 </div>

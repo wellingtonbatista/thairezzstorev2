@@ -2,8 +2,10 @@
 
 namespace App\Livewire;
 
+use App\Models\ContasReceber;
 use App\Models\EntradasProdutos;
 use App\Models\Produto;
+use App\Models\Pedido;
 use Livewire\Component;
 
 class Dashboard extends Component
@@ -12,6 +14,11 @@ class Dashboard extends Component
     public $valor_total_estoque = 0;
     public $valot_total_investido = 0;
     public $lucro_total_estoque = 0;
+    public $contas_aberto = 0;
+    public $valor_vendido_ultimos_dias;
+
+    public $data_inicial_vendas;
+    public $data_final_vendas;
 
     public function render()
     {
@@ -40,5 +47,30 @@ class Dashboard extends Component
 
         // CALCULAR LUCRO TOTAL
         $this->lucro_total_estoque = $this->valor_total_estoque - $this->valot_total_investido;
+
+        // CALCULAR CONTAS EM ABERTO
+        $contas = ContasReceber::all();
+
+        foreach($contas as $conta)
+        {
+            $this->contas_aberto = $this->contas_aberto + $conta->valor_parcela;
+        }
+
+        // CALCULANDO TOTAL VENDIDO NOS ULTIMOS 30 DIAS
+        $this->data_inicial_vendas = date('Y-m-d');
+        $this->data_final_vendas = date('Y-m-d', strtotime('- 30 days', strtotime($this->data_inicial_vendas)));
+
+        $pedidos = Pedido::where('data_venda', '<', $this->data_inicial_vendas)
+            ->where('data_venda', '>', $this->data_final_vendas)
+            ->get();
+
+        foreach($pedidos as $pedido)
+        {
+            foreach($pedido->contas_receber as $conta)
+            {
+                $this->valor_vendido_ultimos_dias = $this->valor_vendido_ultimos_dias + $conta->valor_parcela;
+            }
+        }
+            
     }
 }

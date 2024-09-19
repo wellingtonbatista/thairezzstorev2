@@ -25,7 +25,8 @@ class Pedido extends Model
     protected $with = [
         'cliente',
         'natureza_operacao',
-        'faturas'
+        'faturas',
+        'produtos'
     ];
 
     public function cliente()
