@@ -49,7 +49,7 @@ class Dashboard extends Component
         $this->lucro_total_estoque = $this->valor_total_estoque - $this->valot_total_investido;
 
         // CALCULAR CONTAS EM ABERTO
-        $contas = ContasReceber::all();
+        $contas = ContasReceber::where('pagamento', 0)->get();
 
         foreach($contas as $conta)
         {

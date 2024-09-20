@@ -16,6 +16,7 @@ class DetailsProduto extends Component
 
     public $id_produto;
     public $fornecedores = [];
+    public $selectedTab = 'detalhes-tab';
 
     public $id_fornecedor_produto;
     public $codigo_interno_produto;
