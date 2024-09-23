@@ -1,17 +1,17 @@
 <div>
     <div class="box">
-        <div class="grid grid-cols-2">
+        <div class="grid grid-cols-1 lg:grid-cols-2">
             <div class="grid col-span-1 justify-self-start">
                 <h1 class="titulo">Calculadora de Descontos Shopee</h1>
             </div>
-            <div class="grid col-span-1 justify-self-end">
+            <div class="grid col-span-1 justify-self-end mt-3 lg:mt-0">
                 <a href="{{ route('config.listing') }}" wire:navigate class="btn-warning">Voltar</a>
             </div>
         </div>
 
         <hr class="my-5">
 
-        <div class="grid grid-cols-2 gap-4 mb-5">
+        <div class="grid grid-cols-1 gap-4 mb-5 lg:grid-cols-2">
 
             <div class="grid col-span-1">
                 <label for="valor_bruto" class="label-input-text">Valor de Venda Produto:</label>

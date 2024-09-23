@@ -169,6 +169,31 @@
             <x-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
+
+            <x-responsive-nav-link href="{{ route('cliente.listing') }}" :active="request()->routeIs('cliente.listing')">
+                {{ __('Clientes') }}
+            </x-responsive-nav-link>
+
+            <x-responsive-nav-link href="{{ route('entrada.listing') }}" :active="request()->routeIs('entrada.listing')">
+                {{ __('Entradas') }}
+            </x-responsive-nav-link>
+            
+            <x-responsive-nav-link href="{{ route('produtos.listing') }}" :active="request()->routeIs('produtos.listing')">
+                {{ __('Produtos') }}
+            </x-responsive-nav-link>
+
+            <x-responsive-nav-link href="{{ route('pedidos.listing') }}" :active="request()->routeIs('pedidos.listing')">
+                {{ __('Pedidos') }}
+            </x-responsive-nav-link>
+
+            <x-responsive-nav-link href="{{ route('contas_receber.listing') }}" :active="request()->routeIs('contas_receber.listing')">
+                {{ __('Contas Receber') }}
+            </x-responsive-nav-link>
+
+            <x-responsive-nav-link href="{{ route('config.listing') }}" :active="request()->routeIs('config.listing')">
+                {{ __('Configurações') }}
+            </x-responsive-nav-link>
+
         </div>
 
         <!-- Responsive Settings Options -->

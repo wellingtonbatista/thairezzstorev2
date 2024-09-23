@@ -30,7 +30,7 @@ Route::get('estoque/deposit/create', App\Livewire\Estoque\CreateDepositEstoque::
 Route::get('estoque/deposit/details/{id_deposito}', App\Livewire\Estoque\DetailsDepositoEstoque::class)->middleware('auth')->name('estoque.deposit.details');
 
 Route::get('clientes/listing', App\Livewire\Clientes\ListingClientes::class)->middleware('auth')->name('cliente.listing');
-Route::get('clientes/create', App\livewire\Clientes\CreateClientes::class)->middleware('auth')->name('cliente.create');
+Route::get('clientes/create', App\Livewire\Clientes\CreateClientes::class)->middleware('auth')->name('cliente.create');
 Route::get('clientes/details/{id_cliente}', App\Livewire\Clientes\DetailsClientes::class)->middleware('auth')->name('cliente.details');
 
 Route::get('pedidos/listing', App\Livewire\Pedidos\ListingPedidos::class)->middleware('auth')->name('pedidos.listing');
