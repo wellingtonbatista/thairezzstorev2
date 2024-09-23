@@ -8,7 +8,7 @@
 
 @layer components {
     .box {
-        @apply container mx-auto px-8 py-4 bg-gray-50 border rounded-md mt-8
+        @apply container mx-auto px-8 py-4 bg-gray-50 border rounded-md mt-8 dark:bg-slate-800 dark:border-slate-900
     }
 
     /* ESTILO INPUTS */
@@ -77,6 +77,10 @@
 
     .divisor {
         @apply mt-5 mb-10
+    }
+
+    .divisor-2 {
+        @apply my-10 dark:border-slate-900
     }
 
     /* ESTILO LINK CONFIGURACOES */

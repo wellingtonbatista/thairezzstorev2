@@ -1,4 +1,4 @@
-<nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
+<nav x-data="{ open: false }" class="bg-white border-b border-gray-100 dark:bg-slate-800 dark:border-slate-900">
     <!-- Primary Navigation Menu -->
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
@@ -95,6 +95,8 @@
                         </x-dropdown>
                     </div>
                 @endif
+
+                <x-mary-theme-toggle />
 
                 <!-- Settings Dropdown -->
                 <div class="ms-3 relative">
