@@ -22,7 +22,7 @@
                     </x-nav-link>
 
                     <x-nav-link href="{{ route('entrada.listing') }}" :active="request()->routeIs('entrada.listing')" wire:navigate>
-                        {{ __('Compras') }}
+                        {{ __('Entradas') }}
                     </x-nav-link>
 
                     <x-nav-link href="{{ route('produtos.listing') }}" :active="request()->routeIs('produtos.listing')" wire:navigate>

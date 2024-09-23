@@ -19,6 +19,8 @@ class DetailsEntrada extends Component
 
     public $id_entrada;
 
+    public $selectedTab = 'produtos-tab';
+
     // DADOS PARA FUNCIONAMENTO
     public $produtos = [];
     public $depositos = [];
@@ -109,6 +111,23 @@ class DetailsEntrada extends Component
             }
 
             return Number::currency($valor_total_pedido, in: "BRL");
+        }
+    }
+
+    public function VerificacaoModalProduto()
+    {
+        if($this->entrada->estoque_lancado)
+        {
+            $this->toast(
+                type: 'error',
+                title: 'Estoque ja Lancado, Extornar Estoque Para Prosseguir!',
+                position: 'toast-top toast-end',
+                css: 'alert-error',
+                icon: 'o-x-mark',
+                timeout: '1500'
+            );
+        } else {
+            $this->myModal1 = true;
         }
     }
 }

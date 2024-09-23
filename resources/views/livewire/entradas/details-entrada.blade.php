@@ -11,70 +11,77 @@
 
         <hr class="divisor">
 
-        <div class="grid grid-cols-1">
-            <div class="grid col-span-1">
-                <label for="natureza_operacao" class="label-input-text">Natureza de Operação</label>
-                <input type="text" name="natureza_operacao" class="input-text bg-gray-200" value="{{ $entrada->natureza_operacao->nome }}" disabled>
-            </div>
-        </div>
-
-        <br>
-
-        <div class="grid grid-cols-3 gap-4">
-            <div class="grid col-span-1">
-                <label for="fornecedor_entrada" class="label-input-text">Fornecedor:</label>
-                <input type="text" name="fornecedor_entrada" value="{{ $entrada->fornecedor->nome }}" class="input-text bg-gray-200" disabled>
-            </div>
-
-            <div class="grid col-span-1">
-                <label for="data_compra_entrada" class="label-input-text">Data da Compra:</label>
-                <input type="date" name="data_compra_entrada" value="{{ $entrada->data_entrada }}" disabled class="input-text bg-gray-200" wire:model='data_compra_entrada'>
-            </div>
-
-            <div class="grid col-span-1">
-                <label for="valor_total_pedido" class="label-input-text">Valor Total:</label>
-                <input type="text" name="valor_total_pedido" class="input-text bg-gray-200" disabled value="{{ $valor_total_pedido }}">
-            </div>
-        </div>
-    </div>
-
-    <div class="box">
-        <div class="grid grid-cols-1">
-            <div class="grid col-span-1 justify-self-end">
-                <button class="btn-success" @click="$wire.myModal1 = true">Adicionar Produto ao Pedido</button>
-            </div>
-        </div>
-
-        <hr class="divisor">
-
-        <div class="grid grid-cols-1">
-            <div class="grid col-span-1">
-                <table class="table">
-                    <thead>
-                        <th class="text-sm font-bold text-black">Produto:</th>
-                        <td class="text-sm font-bold text-black text-center">Quantidade:</td>
-                        <td class="text-sm font-bold text-black text-center">Valor Unitario:</td>
-                        <td class="text-sm font-bold text-black text-center">Valor Total</td>
-                        <td class="text-sm font-bold text-black text-end">Remover</td>
-                    </thead>
-                    <tbody>
-                        @foreach ($entrada->produtos as $entr)
-                            <tr>
-                                <th class="py-4">{{ $entr->nome }}</th>
-                                <td class="py-4 text-center">{{ $entr->pivot->quantidade }}</td>
-                                <td class="py-4 text-center">{{ Number::currency($entr->pivot->valor_compra, in:'BRL') }}</td>
-                                <td class="py-4 text-center">{{ Number::currency(($entr->pivot->valor_compra * $entr->pivot->quantidade), in: "BRL") }}</td>
-                                <td class="py-4 text-end">
-                                    <button class="btn-danger" wire:click="remove_produto_entrada({{$entr->pivot->id}})">
-                                        <i class="bi bi-trash3"></i>
-                                    </button>
-                                </td>
-                            </tr>
-                        @endforeach
-                    </tbody>
-                </table>
-            </div>
-        </div>
+        <x-mary-tabs wire:model="selectedTab">
+            <x-mary-tab name="detalhes-tab" label="Detalhes" icon="o-clipboard-document-list">
+                <div class="mt-10">
+                    <div class="grid grid-cols-1">
+                        <div class="grid col-span-1">
+                            <label for="natureza_operacao" class="label-input-text">Natureza de Operação</label>
+                            <input type="text" name="natureza_operacao" class="input-text bg-gray-200" value="{{ $entrada->natureza_operacao->nome }}" disabled>
+                        </div>
+                    </div>
+            
+                    <br>
+            
+                    <div class="grid grid-cols-3 gap-4">
+                        <div class="grid col-span-1">
+                            <label for="fornecedor_entrada" class="label-input-text">Fornecedor:</label>
+                            <input type="text" name="fornecedor_entrada" value="{{ $entrada->fornecedor->nome }}" class="input-text bg-gray-200" disabled>
+                        </div>
+            
+                        <div class="grid col-span-1">
+                            <label for="data_compra_entrada" class="label-input-text">Data da Compra:</label>
+                            <input type="date" name="data_compra_entrada" value="{{ $entrada->data_entrada }}" disabled class="input-text bg-gray-200" wire:model='data_compra_entrada'>
+                        </div>
+            
+                        <div class="grid col-span-1">
+                            <label for="valor_total_pedido" class="label-input-text">Valor Total:</label>
+                            <input type="text" name="valor_total_pedido" class="input-text bg-gray-200" disabled value="{{ $valor_total_pedido }}">
+                        </div>
+                    </div>
+                </div>
+            </x-mary-tab>
+            <x-mary-tab name="produtos-tab" label="Produtos" icon="o-shopping-bag">
+                <div class="mt-10">
+                    <div class="grid grid-cols-1">
+                        <div class="grid col-span-1 justify-self-end">
+                            <button class="btn-success" wire:click="VerificacaoModalProduto">+</button>
+                        </div>
+                    </div>
+            
+                    <hr class="divisor">
+            
+                    <div class="grid grid-cols-1">
+                        <div class="grid col-span-1">
+                            <table class="table">
+                                <thead>
+                                    <th class="text-sm font-bold text-black">Produto:</th>
+                                    <td class="text-sm font-bold text-black text-center">Quantidade:</td>
+                                    <td class="text-sm font-bold text-black text-center">Valor Unitario:</td>
+                                    <td class="text-sm font-bold text-black text-center">Valor Total</td>
+                                    <td class="text-sm font-bold text-black text-end">Remover</td>
+                                </thead>
+                                <tbody>
+                                    @foreach ($entrada->produtos as $entr)
+                                        <tr>
+                                            <th class="py-4">{{ $entr->nome }}</th>
+                                            <td class="py-4 text-center">{{ $entr->pivot->quantidade }}</td>
+                                            <td class="py-4 text-center">{{ Number::currency($entr->pivot->valor_compra, in:'BRL') }}</td>
+                                            <td class="py-4 text-center">{{ Number::currency(($entr->pivot->valor_compra * $entr->pivot->quantidade), in: "BRL") }}</td>
+                                            <td class="py-4 text-end">
+                                                <button class="btn-danger" wire:click="remove_produto_entrada({{$entr->pivot->id}})">
+                                                    <i class="bi bi-trash3"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </x-mary-tab>
+        </x-mary-tabs>
     </div>
 
     <x-mary-modal wire:model="myModal1">

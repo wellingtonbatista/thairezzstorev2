@@ -16,6 +16,7 @@ class ListingEntrada extends Component
 
     public $entradas = [];
 
+
     // FILTROS
     public $status_entrada;
     public $fornecedor_entrada;
