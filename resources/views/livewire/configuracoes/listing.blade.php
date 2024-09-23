@@ -1,6 +1,6 @@
 <div>
     <div class="box">
-        <div class="grid grid-cols-4 gap-7">
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-7">
             <div class="grid col-span-1">
                 <a class="config-cyan" href="{{ route('estoque.produto.listing') }}" wire:navigate>
                     <i class="bi bi-boxes"></i>
@@ -37,7 +37,7 @@
 
         <hr class="my-5">
 
-        <div class="grid grid-cols-4 gap-7">
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-7">
             <div class="grid col-span-1">
                 <a class="config-neutral" href="{{ route('fornecedor.listing') }}" wire:navigate>
                     <i class="bi bi-buildings"></i>

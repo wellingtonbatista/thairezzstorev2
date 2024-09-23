@@ -5,9 +5,14 @@
                 <h1 class="titulo">Fornecedores</h1>
             </div>
             <div class="grid col-span-1 justify-self-end">
-                <button class="btn-success">
-                    <a href="{{ route('fornecedor.create') }}" wire:navigate>Novo Fornecedor</a>
-                </button>
+                <div>
+                    <button class="btn-warning me-2">
+                        <a href="{{ route('config.listing') }}" wire:navigate>Voltar</a>
+                    </button>
+                    <button class="btn-success">
+                        <a href="{{ route('fornecedor.create') }}" wire:navigate>Novo Fornecedor</a>
+                    </button>
+                </div>
             </div>
         </div>
 

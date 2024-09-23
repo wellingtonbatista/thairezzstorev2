@@ -133,6 +133,32 @@
                     </div>
                 </div>
             </x-mary-tab>
+            <x-mary-tab name="pedidos-tab" label="Pedidos" icon="o-shopping-bag">
+                <div class="mt-10">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th class="text-sm text-black font-bold">Cliente:</th>
+                                <td class="text-sm text-black font-bold">Data da Venda:</td>
+                                <td class="text-sm text-black font-bold">Natureza de Operacao</td>
+                                <td class="text-sm text-black font-bold">Pedido Referencial</td>
+                                <td class="text-sm text-black font-bold"></td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($pedidos as $pedido)
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </x-mary-tab>
         </x-mary-tabs>
     </div>
 </div>

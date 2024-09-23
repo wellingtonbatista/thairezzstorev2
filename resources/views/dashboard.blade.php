@@ -1,6 +1,6 @@
 <div>
     <div class="box">
-        <div class="grid grid-cols-4 gap-4 mt-10">
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-4 mt-10">
             <div class="grid col-span-1">
                 <div class="stats shadow">
                     <div class="stat">
@@ -56,7 +56,7 @@
             </div>
         </div>
         <hr class="my-10">
-        <div class="grid grid-cols-4 gap-4 mb-10">
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-4 mb-10">
             <div class="grid col-span-1">
                 <div class="stats shadow">
                     <div class="stat">

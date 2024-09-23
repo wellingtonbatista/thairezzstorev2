@@ -16,7 +16,8 @@ class DetailsProduto extends Component
 
     public $id_produto;
     public $fornecedores = [];
-    public $selectedTab = 'detalhes-tab';
+    public $selectedTab = 'pedidos-tab';
+    public $pedidos;
 
     public $id_fornecedor_produto;
     public $codigo_interno_produto;
@@ -32,8 +33,11 @@ class DetailsProduto extends Component
     public function render()
     {
         $this->fornecedores = Fornecedor::all();
+        $produto = Produto::find($this->id_produto);
 
-        return view('livewire.produtos.details-produto');
+        return view('livewire.produtos.details-produto', [
+            'pedidos' => $produto->pedidos
+        ]);
     }
 
     public function mount()
