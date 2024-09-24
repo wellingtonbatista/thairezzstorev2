@@ -1,12 +1,12 @@
 <div>
     <form wire:submit="create_estoque">
         <div class="box">
-            <div class="grid grid-cols-2">
+            <div class="grid grid-cols-1 lg:grid-cols-2">
                 <div class="grid col-span-1 justify-self-start">
                     <h1 class="titulo">Nova Movimentação de Estoque</h1>
                 </div>
-                <div class="grid col-span-1 justify-self-end">
-                    <button class="btn-warning">
+                <div class="grid col-span-1 lg:justify-self-end mt-7 lg:mt-0">
+                    <button class="btn-warning w-full lg:w-auto">
                         <a href="{{ route('estoque.listing') }}" wire:navigate>Voltar</a>
                     </button>
                 </div>
@@ -33,8 +33,8 @@
     
             <br class="my-5">
     
-            <div class="grid grid-cols-4 gap-4">
-                <div class="grid col-span-2">
+            <div class="grid grid-cols-1 lg:grid-cols-4 gap-4">
+                <div class="grid col-span-1 lg:col-span-2">
                     <label for="natureza_operacao_estoque" class="label-input-text">
                         Natureza de Operação:
                         @error('id_natureza_operacao')
@@ -81,7 +81,7 @@
             <br class="my-5">
     
             <div class="text-end">
-                <button class="btn-success" type="submit">Cadastrar</button>
+                <button class="btn-success w-full lg:w-auto" type="submit">Cadastrar</button>
             </div>
         </div>
     </form>

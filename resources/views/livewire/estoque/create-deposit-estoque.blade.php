@@ -1,12 +1,12 @@
 <div>
     <form wire:submit="create_deposito">
         <div class="box">
-            <div class="grid grid-cols-2">
+            <div class="grid grid-cols-1 lg:grid-cols-2">
                 <div class="grid col-span-1 justify-self-start">
                     <h1 class="titulo">Nova Deposito</h1>
                 </div>
-                <div class="grid col-span-1 justify-self-end">
-                    <button class="btn-warning">
+                <div class="grid col-span-1 lg:justify-self-end">
+                    <button class="btn-warning w-full lg:w-auto mt-7 lg:mt-0">
                         <a href="{{ route('estoque.deposit.listing') }}" wire:navigate>Voltar</a>
                     </button>
                 </div>
@@ -29,7 +29,7 @@
             <br class="my-5">
     
             <div class="text-end">
-                <button class="btn-success" type="submit">Cadastrar</button>
+                <button class="btn-success w-full lg:w-auto" type="submit">Cadastrar</button>
             </div>
         </div>
     </form>

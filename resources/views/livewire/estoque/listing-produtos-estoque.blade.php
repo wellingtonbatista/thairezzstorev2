@@ -1,11 +1,11 @@
 <div>
     <div class="box">
-        <div class="grid grid-cols-2">
+        <div class="grid grid-cols-1 lg:grid-cols-2">
             <div class="grid col-span-1">
                 <h1 class="titulo">Produtos em Estoque</h1>
             </div>
-            <div class="grid col-span-1 justify-self-end">
-                <a href="{{ route('config.listing') }}" wire:navigate class="btn-warning">Voltar</a>
+            <div class="grid col-span-1 lg:justify-self-end w-full lg:w-auto">
+                <a href="{{ route('config.listing') }}" wire:navigate class="btn-warning w-full lg:w-auto mt-7 lg:mt-0 text-center">Voltar</a>
             </div>
         </div>
 

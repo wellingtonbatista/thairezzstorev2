@@ -1,12 +1,12 @@
 <div>
     <div class="box">
-        <div class="grid grid-cols-2">
+        <div class="grid grid-cols-1 lg:grid-cols-2">
             <div class="grid col-span-1 justify-self-start">
                 <h1 class="titulo">Estoque</h1>
             </div>
-            <div class="grid col-span-1 justify-self-end">
+            <div class="grid col-span-1 lg:justify-self-end mt-7 lg:mt-0">
                 <div>
-                    <a href="{{ route('config.listing') }}" wire:navigate class="btn-warning me-2">Voltar</a>
+                    <a href="{{ route('config.listing') }}" wire:navigate class="btn-warning lg:me-2">Voltar</a>
                     <a href="{{ route('estoque.create') }}" wire:navigate class="btn-success">Nova Movimentacao</a>
                 </div>
             </div>
