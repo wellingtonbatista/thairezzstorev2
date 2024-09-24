@@ -42,43 +42,46 @@
 
         
         <div class="grid grid-cols-1">
+            <!-- LISTAGEM DE CLIENTES VERSAO DESKTOP -->
             <div class="grid col-span-1">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th class="td-thead text-start">Nome</th>
-                            <td class="td-thead">Documento</td>
-                            <td class="td-thead">Data de Nascimento</td>
-                            <td class=""></td>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($clientes as $cliente)
+                <div class="overflow-x-scroll overflow-y-hidden">
+                    <table class="table">
+                        <thead>
                             <tr>
-                                <th class="py-4">{{ $cliente->nome }}</th>
-                                <td class="py-4 text-center">{{ $cliente->documento }}</td>
-                                <td class="py-4 text-center">{{ date('d/m/Y', strtotime($cliente->data_nascimento)) }}</td>
-                                <td class="text-end">
-                                    <div class="dropdown dropdown-end">
-                                        <div tabindex="0" role="button" class="btn-warning m-1"><i class="bi bi-list"></i></div>
-                                        <ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
-                                          <li>
-                                            <a href="{{ route('cliente.details', ['id_cliente' => $cliente->id]) }}">Detalhes</a>
-                                          </li>
-                                          <li>
-                                            @if ($cliente->deleted_at == null)
-                                                <button wire:click="ArquivarCliente({{$cliente->id}})">Arquivar</button>
-                                            @else
-                                                <button wire:click="DesarquivarCliente({{$cliente->id}})">Desarquivar</button>
-                                            @endif
-                                          </li>
-                                        </ul>
-                                    </div>
-                                </td>
+                                <th class="td-thead text-start">Nome</th>
+                                <td class="td-thead text-center">Documento</td>
+                                <td class="td-thead text-center">Data de Nascimento</td>
+                                <td class=""></td>
                             </tr>
-                        @endforeach
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                            @foreach ($clientes as $cliente)
+                                <tr class="text-xs">
+                                    <th class="py-4 text-nowrap">{{ $cliente->nome }}</th>
+                                    <td class="py-4 text-center">{{ $cliente->documento }}</td>
+                                    <td class="py-4 text-center">{{ date('d/m/Y', strtotime($cliente->data_nascimento)) }}</td>
+                                    <td class="text-end">
+                                        <div class="dropdown dropdown-end">
+                                            <div tabindex="0" role="button" class="btn-warning m-1"><i class="bi bi-list"></i></div>
+                                            <ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
+                                              <li>
+                                                <a href="{{ route('cliente.details', ['id_cliente' => $cliente->id]) }}">Detalhes</a>
+                                              </li>
+                                              <li>
+                                                @if ($cliente->deleted_at == null)
+                                                    <button wire:click="ArquivarCliente({{$cliente->id}})">Arquivar</button>
+                                                @else
+                                                    <button wire:click="DesarquivarCliente({{$cliente->id}})">Desarquivar</button>
+                                                @endif
+                                              </li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
