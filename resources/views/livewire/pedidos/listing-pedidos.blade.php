@@ -1,25 +1,25 @@
 <div>
     <div class="box">
-        <div class="grid grid-cols-2">
+        <div class="grid lg:grid-cols-2 grid-cols-1">
             <div class="grid col-span-1">
                 <h1 class="titulo">Filtros</h1>
             </div>
-            <div class="grid col-span-1 justify-self-end">
-                <button class="btn-warning" wire:click="LimparFiltroPedido">Limpar</button>
+            <div class="grid col-span-1 lg:justify-self-end mt-7 lg:mt-0">
+                <button class="btn-warning w-full lg:w-auto" wire:click="LimparFiltroPedido">Limpar</button>
             </div>
         </div>
 
-        <hr class="my-4">
+        <hr class="my-5">
 
-        <div class="grid grid-cols-10 gap-4 mb-3">
-            <div class="grid col-span-2">
+        <div class="grid grid-cols-1 lg:grid-cols-10 gap-4 mb-3">
+            <div class="grid lg:col-span-2 col-span-1">
                 <label for="status_pedido" class="label-input-text">Status:</label>
                 <select wire:model.live="status_pedido" name="status_pedido" class="input-text">
                     <option value="">Ativo</option>
                     <option value="inativo">Inativo</option>
                 </select>
             </div>
-            <div class="grid col-span-4">
+            <div class="grid lg:col-span-4 col-span-1">
                 <label for="cliente_pedido" class="label-input-text">Cliente:</label>
                 <select name="cliente_pedido" wire:model.live="cliente_pedido" class="input-text">
                     <option value="">Selecione uma Opção</option>
@@ -28,7 +28,7 @@
                     @endforeach
                 </select>
             </div>
-            <div class="grid col-span-4">
+            <div class="grid lg:col-span-4 col-span-1">
                 <label for="natureza_operacao_pedido" class="label-input-text">Natureza de Operação:</label>
                 <select name="natureza_operacao_pedido" wire:model.live="natureza_operacao_pedido" class="input-text">
                     <option value="">Selecione uma Opção</option>
@@ -41,12 +41,12 @@
     </div>
 
     <div class="box">
-        <div class="grid grid-cols-2">
+        <div class="grid grid-cols-1 lg:grid-cols-2">
             <div class="grid col-span-1 justify-self-start">
                 <h1 class="titulo">Pedidos</h1>
             </div>
-            <div class="grid col-span-1 justify-self-end">
-                <a href="{{ route('pedidos.create') }}" class="btn-success" wire:navigate>Novo Pedido</a>
+            <div class="grid col-span-1 lg:justify-self-end w-full lg:w-auto">
+                <a href="{{ route('pedidos.create') }}" class="btn-success w-full lg:w-auto text-center mt-7 lg:mt-0" wire:navigate>Novo Pedido</a>
             </div>
         </div>
 

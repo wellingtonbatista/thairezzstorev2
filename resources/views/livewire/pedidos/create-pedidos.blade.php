@@ -1,12 +1,12 @@
 <div>
     <div class="box">
         <form wire:submit="AdicionarPedido">
-            <div class="grid grid-cols-2">
-                <div class="grid col-span-1 justify-self-start">
+            <div class="grid lg:grid-cols-2 grid-cols-1">
+                <div class="grid col-span-1 lg:justify-self-start">
                     <h1 class="titulo">Novo Pedido</h1>
                 </div>
-                <div class="grid col-span-1 justify-self-end">
-                    <a href="{{ route('pedidos.listing') }}" class="btn-warning" wire:navigate>Voltar</a>
+                <div class="grid col-span-1 lg:justify-self-end w-full lg:w-auto">
+                    <a href="{{ route('pedidos.listing') }}" class="btn-warning w-full lg:w-auto mt-7 lg:mt-0 text-center" wire:navigate>Voltar</a>
                 </div>
             </div>
     
@@ -26,7 +26,7 @@
     
             <br>
     
-            <div class="grid grid-cols-3 gap-4">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
                 <div class="grid col-span-1">
                     <label for="pedido_referencial" class="label-input-text">Pedido Referencial:</label>
                     <input type="text" name="pedido_referencial" wire:model="pedido_referencial" class="input-text">
@@ -49,7 +49,7 @@
             <br>
     
             <div class="text-end">
-                <button class="btn-success" type="submit">Adicionar</button>
+                <button class="btn-success w-full lg:w-auto" type="submit">Adicionar</button>
             </div>
         </form>
     </div>
