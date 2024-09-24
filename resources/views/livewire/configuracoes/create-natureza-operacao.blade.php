@@ -1,18 +1,18 @@
 <div>
     <form wire:submit="create_natureza_operacao">
         <div class="box">
-            <div class="grid grid-cols-2">
+            <div class="grid grid-cols-1 lg:grid-cols-2">
                 <div class="grid col-span-1">
                     <h1 class="titulo">Nova Natureza de Operação</h1>
                 </div>
-                <div class="grid col-span-1 justify-self-end">
-                    <a href="{{ route('natureza_operacao.listing') }}" class="btn-warning" wire:navigate>Voltar</a>
+                <div class="grid col-span-1 lg:justify-self-end lg:mt-0 mt-7">
+                    <a href="{{ route('natureza_operacao.listing') }}" class="btn-warning w-full lg:w-auto text-center" wire:navigate>Voltar</a>
                 </div>
             </div>
 
             <hr class="divisor">
             
-            <div class="grid grid-cols-5 gap-4">
+            <div class="grid grid-cols-1 lg:grid-cols-5 gap-4">
                 <div class="grid col-span-1">
                     <label for="tipo_natureza_operacao" class="label-input-text">
                         Tipo:
@@ -26,7 +26,7 @@
                         <option value="1">Saida</option>
                     </select>
                 </div>
-                <div class="grid col-span-4">
+                <div class="grid col-span-1 lg:col-span-4">
                     <label for="nome_natureza_operacao" class="label-input-text">
                         Nome:
                         @error('nome_natureza_operacao')
@@ -39,7 +39,7 @@
 
             <br>
 
-            <div class="grid grid-cols-6 gap-6 mt-3">
+            <div class="grid grid-cols-1 lg:grid-cols-6 gap-6 mt-3">
                 <div class="grid col-span-1">
                     <div class="form-control">
                         <label class="label cursor-pointer">
