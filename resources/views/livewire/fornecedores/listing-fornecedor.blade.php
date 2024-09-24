@@ -1,15 +1,15 @@
 <div>
     <div class="box">
-        <div class="grid grid-cols-2">
+        <div class="grid grid-cols-1 lg:grid-cols-2">
             <div class="grid col-span-1 justify-self-start">
                 <h1 class="titulo">Fornecedores</h1>
             </div>
-            <div class="grid col-span-1 justify-self-end">
+            <div class="grid col-span-1 lg:justify-self-end mt-7 lg:mt-0">
                 <div>
-                    <button class="btn-warning me-2">
+                    <button class="btn-warning lg:me-2 w-full lg:w-auto">
                         <a href="{{ route('config.listing') }}" wire:navigate>Voltar</a>
                     </button>
-                    <button class="btn-success">
+                    <button class="btn-success w-full lg:w-auto mt-5 lg:mt-0">
                         <a href="{{ route('fornecedor.create') }}" wire:navigate>Novo Fornecedor</a>
                     </button>
                 </div>
