@@ -37,7 +37,7 @@ class CreateNaturezaOperacao extends Component
             position: 'toast-bottom toast-end',
             css: 'alert-success',
             icon: 'o-check-badge',
-            timeout: '1500'
+            timeout: '1000'
         );
 
     }
