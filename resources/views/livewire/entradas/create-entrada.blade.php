@@ -1,12 +1,12 @@
 <div>
     <form wire:submit="create_entrada">
         <div class="box">
-            <div class="grid grid-cols-2">
+            <div class="grid grid-cols-1 lg:grid-cols-2">
                 <div class="grid col-span-1">
                     <h1 class="titulo">Adicionar Pedido de Compra</h1>
                 </div>
-                <div class="grid col-span-1 justify-self-end">
-                    <a href="{{ route('entrada.listing') }}" class="btn-warning" wire:navigate>Voltar</a>
+                <div class="grid col-span-1 lg:justify-self-end w-full lg:w-auto">
+                    <a href="{{ route('entrada.listing') }}" class="btn-warning w-full lg:w-auto mt-7 lg:mt-0 text-center" wire:navigate>Voltar</a>
                 </div>
             </div>
 
@@ -60,7 +60,7 @@
             <br>
 
             <div class="text-end">
-                <button type="submit" class="btn-success">Cadastrar</button>
+                <button type="submit" class="btn-success w-full lg:w-auto">Cadastrar</button>
             </div>
         </div>
     </form>
