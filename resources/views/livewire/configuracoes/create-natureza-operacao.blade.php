@@ -53,7 +53,7 @@
             <br class="my-8">
 
             <div class="text-end">
-                <button class="btn-success" type="submit">Cadastrar</button>
+                <button class="btn-success w-full lg:w-auto" type="submit">Cadastrar</button>
             </div>
         </div>
     </form>

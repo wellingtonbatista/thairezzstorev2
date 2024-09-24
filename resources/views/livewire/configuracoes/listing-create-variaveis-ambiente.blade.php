@@ -1,23 +1,23 @@
 <div>
     <div class="box text-end">
-        <div class="grid grid-cols-2">
+        <div class="grid grid-cols-1 lg:grid-cols-2">
             <div class="grid col-span-1 justify-self-start">
                 <h1 class="titulo">Variáveis de Ambiente</h1>
             </div>
-            <div class="grid col-span-1 justify-self-end">
-                <a href="{{ route('config.listing') }}" wire:navigate class="btn-warning">Voltar</a>
+            <div class="grid col-span-1 lg:justify-self-end">
+                <a href="{{ route('config.listing') }}" wire:navigate class="btn-warning w-full lg:w-auto mt-7 lg:mt-0 text-center">Voltar</a>
             </div>
         </div>
     </div>
     <div class="box">
         <x-mary-tabs wire:model="selectedTab">
             <x-mary-tab name="utilities-tab" label="Utilitários Calculadora Shopee" icon="o-wrench-screwdriver">
-                <div class="mt-20">
+                <div class="lg:mt-20 mt-5">
 
-                    <div class="grid grid-cols-2 h-40 content-start">
-                        <div class="grid col-span-1 me-44">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 h-40 content-start">
+                        <div class="grid col-span-1 lg:me-44 pb-4 lg:pb-0">
                             <h1 class="titulo-2 pb-2">Comissão de Venda Shopee</h1>
-                            <p class="">Preencha com a porcentagem de comissão padrão cobrado pela shopee para que seja calculado o valor correto na calculadora de comissão!!</p>
+                            <p class="text-xs lg:text-base">Preencha com a porcentagem de comissão padrão cobrado pela shopee para que seja calculado o valor correto na calculadora de comissão!!</p>
                         </div>
                         <div class="grid col-span-1">
                             <div>
@@ -29,10 +29,10 @@
 
                     <hr class="mt-16 mb-5">
 
-                    <div class="grid grid-cols-2 h-40 content-start">
-                        <div class="grid col-span-1 me-44">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 h-40 content-start">
+                        <div class="grid col-span-1 lg:me-44 pb-4 lg:pb-0">
                             <h1 class="titulo-2 pb-2">Taxa de Transporte Shopee</h1>
-                            <p class="">Preencha com a porcentagem de taxa relacionado a cobrança de transporte realizado pela shopee</p>
+                            <p class="text-xs lg:text-base">Preencha com a porcentagem de taxa relacionado a cobrança de transporte realizado pela shopee</p>
                         </div>
                         <div class="grid col-span-1">
                             <div>
@@ -44,10 +44,10 @@
 
                     <hr class="mt-16 mb-5">
 
-                    <div class="grid grid-cols-2 h-40 content-start">
-                        <div class="grid col-span-1 me-44">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 h-40 content-start">
+                        <div class="grid col-span-1 lg:me-44 pb-4 lg:pb-0">
                             <h1 class="titulo-2 pb-2">Taxa de Transação Shopee</h1>
-                            <p class="">Preencha com a porcentagem de taxa relacionado a cobrança de transações financeiras realizado pela shopee</p>
+                            <p class="text-xs lg:text-base">Preencha com a porcentagem de taxa relacionado a cobrança de transações financeiras realizado pela shopee</p>
                         </div>
                         <div class="grid col-span-1">
                             <div>
@@ -59,10 +59,10 @@
 
                     <hr class="mt-16 mb-5">
 
-                    <div class="grid grid-cols-2 h-40 content-start">
-                        <div class="grid col-span-1 me-44">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 h-40 content-start">
+                        <div class="grid col-span-1 lg:me-44 pb-4 lg:pb-0">
                             <h1 class="titulo-2 pb-2">Taxa Fixa Por Item</h1>
-                            <p class="">Preencha com a taxa relacionado a cobrança por item vendido realizado pela shopee</p>
+                            <p class="text-xs lg:text-base">Preencha com a taxa relacionado a cobrança por item vendido realizado pela shopee</p>
                         </div>
                         <div class="grid col-span-1">
                             <div>
@@ -73,7 +73,7 @@
                     </div>
                 </div>
                 <div class="text-end mt-5">
-                    <button wire:click='SalvarVariavelShopee' class="btn-success">Salvar</button>
+                    <button wire:click='SalvarVariavelShopee' class="btn-success w-full lg:w-auto">Salvar</button>
                 </div>
             </x-mary-tab>
         </x-mary-tabs>
