@@ -15,7 +15,7 @@ class Dashboard extends Component
     public $valot_total_investido = 0;
     public $lucro_total_estoque = 0;
     public $contas_aberto = 0;
-    public $valor_vendido_ultimos_dias;
+    public $valor_vendido_ultimos_dias = 0;
 
     public $data_inicial_vendas;
     public $data_final_vendas;
