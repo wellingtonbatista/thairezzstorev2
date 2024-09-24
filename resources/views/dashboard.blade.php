@@ -14,7 +14,7 @@
                 </div>
             </div>
 
-            <div class="grid col-span-1">
+            <div class="grid col-span-1 mt-3 lg:mt-0">
                 <div class="stats shadow">
                     <div class="stat">
                         <div class="stat-figure text-primary text-4xl">
@@ -27,7 +27,7 @@
                 </div>
             </div>
 
-            <div class="grid col-span-1">
+            <div class="grid col-span-1 mt-3 lg:mt-0">
                 <div class="stats shadow">
                     <div class="stat">
                         <div class="stat-figure text-accent text-4xl">
@@ -42,7 +42,7 @@
 
             
             
-            <div class="grid col-span-1">
+            <div class="grid col-span-1 mt-3 lg:mt-0">
                 <div class="stats shadow">
                     <div class="stat">
                         <div class="stat-figure text-success text-4xl">
@@ -71,7 +71,7 @@
                     </div>
                 </div>
             </div>
-            <div class="grid col-span-1">
+            <div class="grid col-span-1 mt-3 lg:mt-0">
                 <div class="stats shadow">
                     <div class="stat">
                         <div class="stat-figure text-warning text-4xl">
