@@ -11,15 +11,15 @@
 
         <hr class="my-4">
 
-        <div class="grid grid-cols-10 mb-4 gap-4">
-            <div class="grid col-span-2">
+        <div class="grid grid-cols-1 mb-4 gap-4 lg:grid-cols-10">
+            <div class="grid col-span-1 lg:col-span-2">
                 <label for="status_cliente" class="label-input-text">Status:</label>
                 <select class="input-text" name="status_cliente" wire:model.live="status_cliente">
                     <option value="" selected>Ativos</option>
                     <option value="ativo">Inativos</option>
                 </select>
             </div>
-            <div class="grid col-span-8">
+            <div class="grid col-span-1 lg:col-span-8">
                 <label for="nome_cliente" class="label-input-text">Nome Cliente:</label>
                 <input type="text" name="nome_cliente" wire:model.live="nome_cliente" class="input-text">
             </div>
@@ -46,10 +46,10 @@
                 <table class="table">
                     <thead>
                         <tr>
-                            <th class="text-sm font-bold text-black text-start">Nome</th>
-                            <td class="text-sm font-bold text-black text-center">Documento</td>
-                            <td class="text-sm font-bold text-black text-center">Data de Nascimento</td>
-                            <td class="py-4"></td>
+                            <th class="td-thead text-start">Nome</th>
+                            <td class="td-thead">Documento</td>
+                            <td class="td-thead">Data de Nascimento</td>
+                            <td class=""></td>
                         </tr>
                     </thead>
                     <tbody>

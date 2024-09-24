@@ -28,7 +28,7 @@
 
             <br class="my-5">
 
-            <div class="grid grid-cols-3 gap-4">
+            <div class="grid grid-cols-1 gap-4 lg:grid-cols-3">
                 <div class="grid col-span-1">
                     <label for="documento_cliente" class="label-input-text">Documento:</label>
                     <input type="text" name="documento_cliente" class="input-text" wire:model="documento_cliente">
