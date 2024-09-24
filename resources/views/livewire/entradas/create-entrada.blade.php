@@ -31,7 +31,7 @@
 
             <br>
 
-            <div class="grid grid-cols-2 gap-4">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
                 <div class="grid col-span-1">
                     <label for="data_compra_entrada" class="label-input-text">
                         Data da Compra:

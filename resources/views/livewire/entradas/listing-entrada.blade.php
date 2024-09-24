@@ -11,15 +11,15 @@
 
         <hr class="my-4">
 
-        <div class="grid grid-cols-10 gap-4 mb-3">
-            <div class="grid col-span-2">
+        <div class="grid grid-cols-1 lg:grid-cols-10 gap-4 mb-3">
+            <div class="grid col-span-1 lg:col-span-2">
                 <label for="status_entrada" class="label-input-text">Status:</label>
                 <select name="status_entrada" class="input-text" wire:model.live="status_entrada">
                     <option value="">Ativo</option>
                     <option value="inativo">Inativo</option>
                 </select>
             </div>
-            <div class="grid col-span-4">
+            <div class="grid col-span-1 lg:col-span-4">
                 <label for="fornecedor_entrada" class="label-input-text">Fornecedor:</label>
                 <select name="fornecedor_entrada" class="input-text" wire:model.live="fornecedor_entrada">
                     <option>Selecione uma Opção</option>
@@ -28,7 +28,7 @@
                     @endforeach
                 </select>
             </div>
-            <div class="grid col-span-4">
+            <div class="grid lg:col-span-4 col-span-1">
                 <label for="natureza_operacao_entrada" class="label-input-text">Natureza de Operação:</label>
                 <select name="natureza_operacao_entrada" class="input-text" wire:model.live="natureza_operacao_entrada">
                     <option>Selecione uma Opção</option>
