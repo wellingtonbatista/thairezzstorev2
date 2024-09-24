@@ -1,12 +1,12 @@
 <div>
     <form wire:submit="create_produto">
         <div class="box">
-            <div class="grid grid-cols-2">
+            <div class="grid grid-cols-1 lg:grid-cols-2">
                 <div class="grid col-span-1">
                     <h1 class="titulo">Novo Produto</h1>
                 </div>
-                <div class="grid col-span-1 justify-self-end">
-                    <button class="btn-warning">
+                <div class="grid col-span-1 lg:justify-self-end">
+                    <button class="btn-warning w-full lg:w-auto mt-7 lg:mt-0">
                         <a href="{{ route('produtos.listing') }}" wire:navigate>Voltar</a>
                     </button>
                 </div>
@@ -14,9 +14,9 @@
 
             <hr class="divisor">
 
-            <div class="grid grid-cols-11 gap-4">
+            <div class="grid grid-cols-1 lg:grid-cols-11 gap-4">
 
-                <div class="grid col-span-2">
+                <div class="grid lg:col-span-2 col-span-1">
 
                     <label for="codigo_interno_produto-produto" class="label-input-text">
                         Cod. Interno:
@@ -28,7 +28,7 @@
                     <input type="text" name="codigo_interno_produto" class="input-text" wire:model="codigo_interno_produto">
                 </div>
 
-                <div class="grid col-span-5">
+                <div class="grid lg:col-span-5 col-span-1">
 
                     <label for="nome_produto" class="label-input-text">
                         Nome:
@@ -40,7 +40,7 @@
                     <input type="text" name="nome_produto" class="input-text" wire:model="nome_produto">
                 </div>
 
-                <div class="grid col-span-2">
+                <div class="grid col-span-1 lg:col-span-2">
 
                     <label for="fornecedor_produto" class="label-input-text">
                         Fornecedor:
@@ -58,7 +58,7 @@
                     </select>
                 </div>
 
-                <div class="grid col-span-2">
+                <div class="grid col-span-1 lg:col-span-2">
                     <label for="ean-produto" class="label-input-text">EAN:</label>
                     <input type="text" name="ean_produto" class="input-text" wire:model="ean_produto">
                 </div>
@@ -75,9 +75,9 @@
 
             <br class="my-5">
 
-            <div class="grid grid-cols-9 gap-4">
+            <div class="grid grid-cols-1 lg:grid-cols-9 gap-4">
 
-                <div class="grid col-span-3">
+                <div class="grid col-span-1 lg:col-span-3">
 
                     <label for="valor_compra_produto" class="label-input-text">
                         Valor Compra:
@@ -89,7 +89,7 @@
                     <input type="text" name="valor_compra_produto" class="input-text" wire:model="valor_compra_produto">
                 </div>
 
-                <div class="grid col-span-3">
+                <div class="grid col-span-1 lg:col-span-3">
 
                     <label for="valor_venda_produto" class="label-input-text">
                         Valor Venda:
@@ -101,7 +101,7 @@
                     <input type="text" name="valor_venda_produto" class="input-text" wire:model="valor_venda_produto">
                 </div>
 
-                <div class="grid col-span-3">
+                <div class="grid col-span-1 lg:col-span-3">
                     <label for="estoque_produto" class="label-input-text">Estoque:</label>
                     <input type="text" name="estoque_produto" class="input-text bg-gray-50" value="0" disabled>
                 </div>
@@ -123,7 +123,7 @@
             <br class="my-5">
 
             <div class="text-end">
-                <button class="btn-success" type="submit">Cadastrar</button>
+                <button class="btn-success w-full lg:w-auto" type="submit">Cadastrar</button>
             </div>
         </div>
     </form>

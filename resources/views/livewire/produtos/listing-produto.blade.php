@@ -1,17 +1,17 @@
 <div>
     <div class="box">
-        <div class="grid grid-cols-2">
+        <div class="grid grid-cols-1 lg:grid-cols-2">
             <div class="grid col-span-1">
                 <h1 class="titulo">Filtros</h1>
             </div>
-            <div class="grid col-span-1 justify-self-end">
-                <button wire:click="LimparFiltroProduto" class="btn-warning">Limpar</button>
+            <div class="grid col-span-1 lg:justify-self-end">
+                <button wire:click="LimparFiltroProduto" class="btn-warning w-full lg:w-auto mt-7 lg:mt-0">Limpar</button>
             </div>
         </div>
 
         <hr class="my-4">
 
-        <div class="grid grid-cols-4 mb-3 gap-4">
+        <div class="grid grid-cols-1 lg:grid-cols-4 mb-3 gap-4">
             <div class="grid col-span-1">
                 <label for="status_produto" class="label-input-text">Status:</label>
                 <select name="status_produto" wire:model.live="status_produto" class="input-text">
@@ -20,7 +20,7 @@
                 </select>
             </div>
 
-            <div class="grid col-span-2">
+            <div class="grid col-span-1 lg:col-span-2">
                 <label for="nome_produto" class="label-input-text">Nome:</label>
                 <input type="text" name="nome_produto" wire:model.live="nome_produto" class="input-text">
             </div>
@@ -32,12 +32,12 @@
         </div>
     </div>
    <div class="box">
-        <div class="grid grid-cols-2">
+        <div class="grid grid-cols-1 lg:grid-cols-2">
             <div class="grid col-span-1">
                 <h1 class="titulo">Produtos</h1>
             </div>
-            <div class="grid col-span-1 justify-self-end">
-                <button class="btn-success">
+            <div class="grid col-span-1 lg:justify-self-end">
+                <button class="btn-success w-full lg:w-auto mt-7 lg:mt-0">
                     <a href="{{ route('produtos.create') }}" wire:navigate>Novo Produto</a>
                 </button>
             </div>
