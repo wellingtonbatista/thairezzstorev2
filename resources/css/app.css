@@ -70,7 +70,7 @@
     }
 
     .titulo-2 {
-        @apply font-bold my-auto text-xl
+        @apply font-bold my-auto lg:text-xl text-lg
     }
 
     /* UTILITARIOS */
@@ -85,7 +85,7 @@
 
     /* ESTILO LINK CONFIGURACOES */
     .config {
-        @apply text-6xl border text-center py-10 rounded-md text-rose-500 border-rose-500 my-6
+        @apply lg:text-6xl text-5xl border text-center py-10 rounded-md text-rose-500 border-rose-500 my-6
     }
 
     .config:hover {
@@ -93,7 +93,7 @@
     }
 
     .config-cyan {
-        @apply text-6xl border text-center py-10 rounded-md text-cyan-500 border-cyan-500 my-6
+        @apply lg:text-6xl text-5xl border text-center py-10 rounded-md text-cyan-500 border-cyan-500 my-6
     }
 
     .config-cyan:hover {
@@ -101,7 +101,7 @@
     }
 
     .config-teal {
-        @apply text-6xl border text-center py-10 rounded-md text-teal-500 border-teal-500 my-6
+        @apply lg:text-6xl text-5xl border text-center py-10 rounded-md text-teal-500 border-teal-500 my-6
     }
 
     .config-teal:hover {
@@ -109,7 +109,7 @@
     }
 
     .config-orange {
-        @apply text-6xl border text-center py-10 rounded-md text-orange-500 border-orange-500 my-6
+        @apply lg:text-6xl text-5xl border text-center py-10 rounded-md text-orange-500 border-orange-500 my-6
     }
 
     .config-orange:hover {
@@ -117,7 +117,7 @@
     }
 
     .config-sky {
-        @apply text-6xl border text-center py-10 rounded-md text-sky-800 border-sky-800 my-6
+        @apply lg:text-6xl text-5xl border text-center py-10 rounded-md text-sky-800 border-sky-800 my-6
     }
 
     .config-sky:hover {
@@ -125,7 +125,7 @@
     }
 
     .config-neutral {
-        @apply text-6xl border text-center py-10 rounded-md text-neutral-500 border-neutral-500 my-6
+        @apply lg:text-6xl text-5xl border text-center py-10 rounded-md text-neutral-500 border-neutral-500 my-6
     }
 
     .config-neutral:hover {
@@ -133,7 +133,7 @@
     }
 
     .config-indigo {
-        @apply text-6xl border text-center py-10 rounded-md text-indigo-500 border-indigo-500 my-6
+        @apply lg:text-6xl text-5xl border text-center py-10 rounded-md text-indigo-500 border-indigo-500 my-6
     }
 
     .config-indigo:hover {
@@ -158,5 +158,9 @@
 
     .alert > div > svg {
         @apply hidden lg:block
+    }
+
+    .file-input {
+        @apply w-full text-xs file-input-sm
     }
 }
