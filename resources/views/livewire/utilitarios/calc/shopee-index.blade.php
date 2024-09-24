@@ -4,8 +4,8 @@
             <div class="grid col-span-1 justify-self-start">
                 <h1 class="titulo">Calculadora de Descontos Shopee</h1>
             </div>
-            <div class="grid col-span-1 justify-self-end mt-3 lg:mt-0">
-                <a href="{{ route('config.listing') }}" wire:navigate class="btn-warning">Voltar</a>
+            <div class="grid col-span-1 justify-self-end mt-7 lg:mt-0 w-full lg:w-auto">
+                <a href="{{ route('config.listing') }}" wire:navigate class="btn-warning w-full lg:w-auto text-center">Voltar</a>
             </div>
         </div>
 
@@ -26,7 +26,7 @@
         </div>
 
         <div class="text-end mt-10">
-            <button wire:click="CalcularValorLiquido" class="btn-success">Calcular</button>
+            <button wire:click="CalcularValorLiquido" class="btn-success w-full lg:w-auto">Calcular</button>
         </div>
         
     </div>
@@ -35,28 +35,28 @@
         <table class="table">
             <tbody>
                 <tr>
-                    <th class="py-4 text-sm">Taxa de Comissao Shopee:</th>
-                    <td class="py-4 text-sm text-end">{{ $valores_parciais == null ? 'n/a' : Number::currency($valores_parciais['comissao'], in: "BRL") }}</td>
+                    <th class="py-4 text-xs">Taxa de Comissao Shopee:</th>
+                    <td class="py-4 text-xs text-end">{{ $valores_parciais == null ? 'n/a' : Number::currency($valores_parciais['comissao'], in: "BRL") }}</td>
                 </tr>
                 <tr>
-                    <th class="py-4 text-sm">Taxa de Transporte Shopee:</th>
-                    <td class="py-4 text-sm text-end">{{ $valores_parciais == null ? 'n/a' : Number::currency($valores_parciais['transporte'], in: "BRL") }}</td>
+                    <th class="py-4 text-xs">Taxa de Transporte Shopee:</th>
+                    <td class="py-4 text-xs text-end">{{ $valores_parciais == null ? 'n/a' : Number::currency($valores_parciais['transporte'], in: "BRL") }}</td>
                 </tr>
                 <tr>
-                    <th class="py-4 text-sm">Taxa de Transação Shopee:</th>
-                    <td class="py-4 text-sm text-end">{{ $valores_parciais == null ? 'n/a' : Number::currency($valores_parciais['transacao'], in: "BRL") }}</td>
+                    <th class="py-4 text-xs">Taxa de Transação Shopee:</th>
+                    <td class="py-4 text-xs text-end">{{ $valores_parciais == null ? 'n/a' : Number::currency($valores_parciais['transacao'], in: "BRL") }}</td>
                 </tr>
                 <tr>
-                    <th class="py-4 text-sm">Taxa por Item Shopee:</th>
-                    <td class="py-4 text-sm text-end border-b border-black">{{ $valores_parciais == null ? 'n/a' : Number::currency($valores_parciais['taxa_item'], in: "BRL") }}</td>
+                    <th class="py-4 text-xs">Taxa por Item Shopee:</th>
+                    <td class="py-4 text-xs text-end border-b border-black">{{ $valores_parciais == null ? 'n/a' : Number::currency($valores_parciais['taxa_item'], in: "BRL") }}</td>
                 </tr>
                 <tr>
-                    <th class="py-5 text-sm text-end">Total Descontos:</th>
-                    <td class="py-5 text-sm text-end">{{ $valores_parciais == null ? 'n/a' : Number::currency($valores_parciais['total_desconto'], in: "BRL") }}</td>
+                    <th class="py-5 text-xs text-end">Total Descontos:</th>
+                    <td class="py-5 text-xs text-end">{{ $valores_parciais == null ? 'n/a' : Number::currency($valores_parciais['total_desconto'], in: "BRL") }}</td>
                 </tr>
                 <tr>
-                    <th class="py-5 text-sm text-end">Lucro Liquido:</th>
-                    <td class="py-5 text-sm text-end">{{ $valores_parciais == null ? 'n/a' : Number::currency($valores_parciais['lucro_liquido'], in: "BRL") }}</td>
+                    <th class="py-5 text-xs text-end">Lucro Liquido:</th>
+                    <td class="py-5 text-xs text-end">{{ $valores_parciais == null ? 'n/a' : Number::currency($valores_parciais['lucro_liquido'], in: "BRL") }}</td>
                 </tr>
             </tbody>
         </table>
